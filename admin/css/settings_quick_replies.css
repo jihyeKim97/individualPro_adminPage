@@ -1,0 +1,205 @@
+input[type="text"] {
+  margin: 0px;
+}
+
+.checks {
+  margin-left: 0px;
+  margin-right: 10px;
+}
+
+.checks:first-child {
+  margin-right: 30px;
+}
+
+.body_box .contents_box .title {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  margin-bottom: 20px;
+}
+
+.info_form {
+  background: #EDF0F5;
+  width: 100%;
+  border-radius: 8px;
+}
+
+.info_form tr th {
+  text-align: right;
+  font-size: 18px;
+  padding-right: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px
+}
+
+.info_form tr:first-child td {
+  border-top: 0px solid #e3e7ed;
+}
+.info_form tr td {
+  padding-right: 15px;
+}
+
+.info_form tr td button:disabled {
+  background: #92A1E2
+}
+
+.info_form tr td .msg_text {
+  color: #A3A9B6;
+  margin-left: 20px;
+}
+
+.info_form .btn_form {
+  padding-top: 10px;
+}
+
+.info_form .btn_form .add_btn {
+  color: #2644C5;
+  border: 1px solid #2644C5;
+  background: #ffffff
+}
+
+.info_form .btn_form .add_btn:active {
+  background: #edf0ff
+}
+.info_form .btn_form .add_btn:hover {
+  background: #edf0ff
+}
+
+.info_form .btn_form .add_btn:disabled {
+  color: #92A1E2;
+  border: 1px solid #92A1E2;
+}
+
+.info_form .btn_form .dup_btn {
+  color: #878a97;
+  border: 1px solid #878a97;
+  background: #ffffff;
+}
+
+.info_form .btn_form .dup_btn:active {
+  color: #696c77;
+  border: 1px solid #696c77;
+  background: #F2F2F2
+}
+.info_form .btn_form .dup_btn:hover {
+  color: #696c77;
+  border: 1px solid #696c77;
+  background: #F2F2F2;
+  opacity: 1;
+}
+
+.info_form .btn_form .dup_btn:disabled {
+  color: #AFB1B9;
+  border: 1px solid #AFB1B9;
+}
+
+.info_form .btn_form .del_btn {
+  color: #D1194B;
+  border: 1px solid #D1194B;
+  background: #ffffff;
+  float: right;
+}
+
+.info_form .btn_form .del_btn:active {
+  background: #fff0f5;
+}
+.info_form .btn_form .del_btn:hover {
+  background: #fff0f5;
+}
+
+.info_form .btn_form .del_btn:disabled {
+  color: #E88CA5;
+  border: 1px solid #E88CA5;
+}
+
+.info_form .list_form {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  border-top: 0px;
+  background: none;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.info_form .list_form input[type="text"] {
+  width: 70%;
+}
+
+.info_form .list_form thead tr th {
+  background: #d5d9e3 0% 0% no-repeat padding-box;
+  padding: 15px 0px;
+  text-align: center;
+  font: 600 14px Noto Sans;
+  color: #272D48;
+  text-align: left;
+}
+
+.info_form .list_form thead tr th:first-child {
+  border-radius: 8px 0px 0px 8px;
+}
+
+.info_form .list_form thead tr th:last-child {
+  border-radius: 0px 8px 8px 0px;
+  text-align: center;
+}
+
+.info_form .list_form tbody tr td {
+  text-align: left;
+  font: 14px Noto Sans;
+  padding: 10px 0px;
+  border-bottom: 1px solid #d5d9e3;
+  background-color: #EDF0F5;
+}
+
+.info_form .list_form tbody tr td:first-child,
+.info_form .list_form tbody tr td:last-child {
+  text-align: center;
+}
+.tag_box{position:relative; padding:20px !important; box-sizing:border-box; max-width:340px;background: #ffffff;
+border-radius: 20px;margin-bottom: 20px;margin-top: 20px;}
+.tag_box h3{font-size:18px; font-weight:500; letter-spacing:-0.03em; line-height:24px; color:#111;}
+
+.tag_box .close{width:24px;height:24px ;position:absolute; right:20px ;top:20px;background:url(../images/icon-close-gr.svg) no-repeat center center;}
+.tag_box .close span{display:none;}
+.tag_box ul{margin-top:5px;}
+.tag_box ul:after{display:block; content:"";clear:both;}
+.tag_box ul li{float:left; margin:10px 5px 0 0}
+.tag_box ul li:nth-child(n+2){margin-top:10px;}
+.tag_box ul li a{display:block; padding:0 16px; line-height:38px ;border:1px solid #d1d7dd; color:#000; text-align:center; border-radius: 20px; font-size:13px; font-weight:400; letter-spacing:-0.03em; background:#fff;}
+.tag_box ul li.active a, .tag_box ul li a:hover{border-color:#0057DA; background:#0066FF; color:#fff;box-shadow: 0px 5px 10px rgba(0,102,255,0.2);-webkit-box-shadow: 0px 5px 10px rgba(0,102,255,0.2); -moz-box-shadow:0px 5px 10px rgba(0,102,255,0.2)}
+
+.tag_box ul li.active a span, .tag_box ul li a:hover span{ color:#fff !important;}
+
+.info_form .confirm_form button {
+  font-size: 18px;
+  padding: 10px 0px;
+  width: 100px;
+  border-radius: 22px;
+  margin: 0px 10px;
+  font-weight: normal;
+}
+
+.info_form .confirm_form button.cancel_btn {
+  background: #5F6374
+}
+
+.info_form .confirm_form button.cancel_btn:active {
+  background: #272d48
+}
+.info_form .confirm_form button.cancel_btn:hover {
+  background: #272d48
+}
+
+.info_form .confirm_form button.cancel_btn:disabled {
+  background: #afb1b9
+}
+
+/*datatable css*/
+.dataTables_wrapper {
+  position: relative;
+  margin-bottom: 30px;
+  clear: both;
+  *zoom: 1;
+  zoom: 1;
+}

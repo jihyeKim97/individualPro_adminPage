@@ -1,0 +1,15 @@
+.body_box .contents_box .title {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  border-bottom: 1px solid #dfe2ea;
+  padding-bottom: 12px;
+  margin-bottom: 30px;
+}
+
+.body_box .contents_box .contents {
+  position: relative;
+  width: 100%;
+  height: 873px;
+  background-color: #f2f2f2;
+}

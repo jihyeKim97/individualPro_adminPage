@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable = no">
+	<title>none title</title>
+	<link rel="stylesheet" type="text/css" href="../jquery-ui/common.css">
+	<link rel="stylesheet" type="text/css" href="../DataTables/datatables.min.css">
+	<link rel="stylesheet" type="text/css" href="../DataTables/buttons.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/common.css">
+	<link rel="stylesheet" type="text/css" href="../css/daterangepicker.css" />
+	<script type="text/javascript" src="../js/jquery-3.5.0.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+	<script type="text/javascript" src="../js/common.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+	<script type="text/javascript" src="../DataTables/datatables.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js"></script>
+	<script type="text/javascript" src="../jquery-ui/common.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/settings_quick_replies.css">
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			//메뉴 높이 조절 - 자바스크립트 인하여 페이지의 높이가 달라진다면 사용
+			heightAction();
+
+
+			$("#table_id2").DataTable({
+				// 표시 건수기능 숨기기
+				lengthChange: false,
+				// 정렬 기능 숨기기
+				//ordering: false,
+				// 정보 표시 숨기기
+				//info: false,
+				// 페이징 기능 숨기기
+				//aging: false,
+				// 검색 기능 숨기기
+				searching: false,
+				dom: 'l<"right" Bf>rtip',
+				buttons: [{
+					extend: 'excel',
+					text: 'Download',
+					className: 'dt_download_btn'
+				}]
+			});
+
+			//quick_replies hide
+			$(".blind_tr").hide();
+
+		});
+		//quick_replies show
+		function onShow() {
+			$(".blind_tr").show();
+			heightAction();
+		}
+		//quick_replies hide
+		function onHidden() {
+			$(".blind_tr").hide();
+		}
+		//delete 클릭시 컴펌창 열기
+		function onDelete() {
+			//사용될 글짜
+			var btnText = ["삭제", "취소"]; //0:승인버튼에 선택할 사용할 글짜, 1:취소버튼 사용될 글짜
+			confirmOpen("popup02", "정말로 삭제하시겠습니까?", "선택하신 Row를 삭제 합니다.", btnText, confirmReturn); //
+		}
+		//리턴될 액션
+		var confirmReturn = function() {
+			$(".confirm_box").dialog("close"); //컴펌창 닫기 - 반드시 필요
+		}
+		//로드가 된 후 메뉴바 높이 조절
+		window.onload = function() {
+			heightAction();
+		}
+	</script>
+
+</head>
+
+<body>
+	<!-- //-----------------------------상단 영역 -->
+	<header>
+		<div class="header_box width_box">
+			<!-- 상단 select box -->
+			<div class="top_logo_select_box selectAction">
+				<img alt="icon" class="logo_img" src="../images/chatbot_icon.svg">
+				<span class="text">HR</span>
+				<ul class="dataList">
+					<!-- type="value" 는 하단 input으로 값이 전달됨 -->
+					<li type="value" dataValue="HR"><img src="../images/chatbot_icon.svg" /><a href="#">HR</a></li>
+					<li type="value" dataValue="Finance"><img src="../images/chatbot_icon_gr.svg" /><a href="#">Finance</a></li>
+					<li type="value" dataValue="NEWS"><img src="../images/chatbot_icon_pu.svg" /><a href="#">NEWS</a></li>
+					<li type="value" dataValue="Test"><img src="../images/chatbot_icon_ye.svg" /><a href="#">Test</a></li>
+					<!-- dataUrl에 이동할 페이지 주소를 넣으면 페이지 이동 -->
+					<li type="link" dataValue="Skill List" dataUrl="/a"><img src="../images/Icon ionic-md-arrow-round-back.svg" /><a href="bot_list_skill.html">Skill List</a></li>
+				</ul>
+				<input type="hidden" value="" />
+			</div>
+			<!-- 상단 select box -->
+
+			<div class="user_btn">
+				<span>john</span>
+				<ul class="setting_box">
+					<li class="on"><a href="#">Admin</a></li>
+					<li><a href="bot_list_account_user_edit.html">setting</a></li>
+					<li><a href="#">logout</a></li>
+				</ul>
+			</div>
+		</div>
+
+	</header>
+
+	<!-- //-----------------------------상단 영역 -->
+	<div class="body_box width_box">
+
+		<!-- //------------------------ 메뉴 영역 -->
+		<!--
+			one_dapps 옆에 on 클래스 넣어주면 활성화
+			그룹 타입은 A 테그가 아닌 네무 테그 사용
+			ul off : 닫힘 표시
+			-->
+		<div class="menu_box">
+			<ul class="off">
+				<li><a class="one_dapps dashboard" href="dashboard.html">Dashboard</a></li>
+			</ul>
+			<ul class="off">
+				<li><a class="one_dapps statistics" href="statistics.html">Statistics</a></li>
+			</ul>
+
+			<!-- two_dapps 옆에 on 클래스 넣어주면 활성화 -->
+			<ul class="off">
+				<li>
+					<span class="one_dapps analytics" href="">
+						Analytics
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="9.148" viewBox="0 0 16 9.148">
+							<path id="Icon_ionic-ios-arrow-down" data-name="Icon ionic-ios-arrow-down" d="M14.19,17.637l6.05-6.055a1.139,1.139,0,0,1,1.615,0,1.153,1.153,0,0,1,0,1.62L15,20.062a1.141,1.141,0,0,1-1.577.033l-6.9-6.888a1.144,1.144,0,0,1,1.615-1.62Z"
+								transform="translate(-6.188 -11.246)" />
+						</svg>
+					</span>
+				</li>
+				<li><a class="two_dapps" href="analytics_intent.html">ㆍ Intent</a></li>
+				<li><a class="two_dapps" href="analytics_entity.html">ㆍ Entity</a></li>
+				<li><a class="two_dapps" href="analytics_usage.html">ㆍ Usage</a></li>
+				<li><a class="two_dapps" href="analytics_confidence.html">ㆍ Confidence</a></li>
+				<li><a class="two_dapps" href="analytics_recognition_rate.html">ㆍ Recognition Rate</a></li>
+				<li><a class="two_dapps" href="analytics_keyword.html">ㆍ Keywords</a></li>
+				<li><a class="two_dapps" href="analytics_test_examples.html">ㆍ Test Examples</a></li>
+			</ul>
+
+			<ul class="off">
+				<li>
+					<span class="one_dapps monitoring">
+						Monitoring
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="9.148" viewBox="0 0 16 9.148">
+							<path id="Icon_ionic-ios-arrow-down" data-name="Icon ionic-ios-arrow-down" d="M14.19,17.637l6.05-6.055a1.139,1.139,0,0,1,1.615,0,1.153,1.153,0,0,1,0,1.62L15,20.062a1.141,1.141,0,0,1-1.577.033l-6.9-6.888a1.144,1.144,0,0,1,1.615-1.62Z"
+								transform="translate(-6.188 -11.246)" />
+						</svg>
+					</span>
+				</li>
+				<li><a class="two_dapps" href="monitoring_conversations.html">ㆍ Conversations</a></li>
+				<li><a class="two_dapps" href="monitoring_user_ratings.html">ㆍ User Ratings</a></li>
+			</ul>
+
+			<ul class="off">
+				<li><a class="one_dapps reporting" href="reporting.html">Reporting</a></li>
+			</ul>
+
+			<ul class="">
+				<li>
+					<span class="one_dapps settings on">
+						Settings
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="9.148" viewBox="0 0 16 9.148">
+							<path id="Icon_ionic-ios-arrow-down" data-name="Icon ionic-ios-arrow-down" d="M14.19,17.637l6.05-6.055a1.139,1.139,0,0,1,1.615,0,1.153,1.153,0,0,1,0,1.62L15,20.062a1.141,1.141,0,0,1-1.577.033l-6.9-6.888a1.144,1.144,0,0,1,1.615-1.62Z"
+								transform="translate(-6.188 -11.246)" />
+						</svg>
+					</span>
+				</li>
+				<li><a class="two_dapps" href="settings_integration.html">ㆍ Integration</a></li>
+				<li><a class="two_dapps" href="settings_response_types.html">ㆍ Response Types</a></li>
+				<li><a class="two_dapps on" href="settings_quick_replies.html">ㆍ Quick Replies</a></li>
+				<li><a class="two_dapps" href="settings_apis.html">ㆍ APIs</a></li>
+				<li><a class="two_dapps" href="settings_push.html">ㆍ Push</a></li>
+				<li><a class="two_dapps" href="settings_voice.html">ㆍ Voice</a></li>
+			</ul>
+		</div>
+		<!-- //------------------------ 메뉴 영역 -->
+
+		<!-- //------------------------ 컨텐츠 영역 -->
+		<div class="contents_box">
+			<h2 class="title">Quick Replies</h2>
+
+			<div class="contents">
+
+				<table class="info_form">
+					<colgroup>
+						<col width="200px" />
+						<col width="*" />
+					</colgroup>
+					<tbody>
+						<tr>
+							<th>Status</th>
+							<td>
+								<div class="checks">
+									<input type="radio" id="status_type_01" name="select_type">
+									<label for="status_type_01">Inactive</label>
+								</div>
+								<div class="checks">
+									<input type="radio" id="status_type_02" name="select_type" checked="checked">
+									<label for="status_type_02">Active</label>
+								</div>
+								<!-- <button  onclick="hide('blind_tr_box');">Edit</button> -->
+								<button onclick="onShow();">Edit</button>
+								<span class="msg_text">* Inactive 시 챗봇 Client에 Quick Replies 기능이 표시되지 않습니다.</span>
+							</td>
+						</tr>
+						<tr>
+							<th>Title</th>
+							<td><input type="text" disabled="disabled" class="w_580" /></td>
+						</tr>
+						<tr>
+							<th>View Type</th>
+							<td>
+								<select class="" id="select_type03" disabled="disabled">
+									<option value="">Normal</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<th class="v_t">Button<br />Setting</th>
+							<td>
+								<div class="btn_form">
+									<button class="add_btn">Add Rows</button>
+									<button class="dup_btn">Duplicate</button>
+									<button class="del_btn" onclick="onDelete();">Delete</button>
+								</div>
+
+								<table class="list_form" id="table_id2">
+									<colgroup>
+										<col width="57px" />
+										<col width="230px" />
+										<col width="150px" />
+										<col width="150px" />
+										<col width="150px" />
+										<col width="140px" />
+										<col width="103px" />
+									</colgroup>
+									<thead>
+										<tr>
+											<th>&nbsp;</th>
+											<th>Button String</th>
+											<th>Response String</th>
+											<th>Sort Order</th>
+										</tr>
+									</thead>
+									<tbody>
+										<!-- roof 시작 -->
+										<tr>
+											<td><input type="checkbox" /></td>
+											<td><input type="text" name="" /></td>
+											<td><input type="text" name="" /></td>
+											<td><input type="text" name="" /></td>
+										</tr>
+										<!-- roof 끝 -->
+									</tbody>
+								</table>
+
+
+							</td>
+						</tr>
+						<!-- radio button 이 active 일 경우 Edit클릭시 보이도록 함 -->
+						<tr id="blind_tr_box" class="blind_tr">
+							<th class="v_t">Preview</th>
+							<td>
+								<div class="tag_box">
+									<h3>답변이 도움이 되셨나요?</h3>
+									<a href="#n" class="close"><span class="blind">닫기</span></a>
+									<ul>
+										<li class="active"><a href="#n"><span>회의실 예약</span></a></li>
+										<li><a href="#n"><span>경조사</span></a></li>
+										<li><a href="#n"><span>회의실 위치</span></a></li>
+										<li><a href="#n"><span>주차장 이용문의</span></a></li>
+										<li><a href="#n"><span>휴가신청방법</span></a></li>
+										<li><a href="#n"><span>육아휴직문의</span></a></li>
+										<li><a href="#n"><span>출장비 정산</span></a></li>
+										<li><a href="#n"><span>근태</span></a></li>
+									</ul>
+								</div>
+							</td>
+						</tr>
+						<tr class="blind_tr">
+							<th>&nbsp;</th>
+							<td class="confirm_form">
+								<button class="save_btn">Save</button>
+								<!-- Cancel button을 누르면 Inactive로 다시 돌아가며 비편집 상태 유지 -->
+								<button class="cancel_btn" onclick="onHidden();">Cancel</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<footer></footer>
+	</div>
+
+	<!-- Create 팝업 -->
+	<div id="popup01" class="popup_box" role="dialog">
+		<button class="btn_list icon_button" onclick="window.location.href='settings_response_types_button.html'">Button</button>
+		<button class="btn_list icon_link">Link</button>
+		<button class="btn_list icon_card" onclick="window.location.href='settings_response_types_card.html'">Card</button>
+		<button class="btn_list icon_table">Table</button>
+		<button class="btn_list icon_phone">Phone</button>
+		<button class="btn_list icon_image" onclick="window.location.href='settings_response_types_image.html'">Image</button>
+		<button class="btn_list icon_video">Video</button>
+		<button class="btn_list icon_download">Download</button>
+		<button class="btn_list icon_select_box">Select Box</button>
+	</div>
+
+	<!-- delect 컴펌 창 -->
+	<div id="popup02" class="confirm_box" role="dialog">
+	</div>
+
+</body>
+
+</html>

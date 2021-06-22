@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="128" height="128" viewBox="0 0 128 128">
+  <defs>
+    <filter id="타원_11" x="0" y="0" width="128" height="128" filterUnits="userSpaceOnUse">
+      <feOffset dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feFlood flood-color="#f58e27" flood-opacity="0.4"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="그룹_170" data-name="그룹 170" transform="translate(-286 -665)">
+    <g transform="matrix(1, 0, 0, 1, 286, 665)" filter="url(#타원_11)">
+      <circle id="타원_11-2" data-name="타원 11" cx="34" cy="34" r="34" transform="translate(30 20)" fill="#f58e27"/>
+    </g>
+    <g id="그룹_13" data-name="그룹 13" transform="translate(327.25 698.5)">
+      <path id="패스_1" data-name="패스 1" d="M58.492,59.891H44.673l-5.02,5.359-.125-5.359H37.41c-3.8,0-6.9-3.778-6.9-8.395V38.9c0-4.617,3.1-8.395,6.9-8.395H58.492c3.8,0,6.9,3.778,6.9,8.395V51.5C65.392,56.113,62.287,59.891,58.492,59.891Z" transform="translate(-25.451 -25.451)" fill="#e7ab64"/>
+      <path id="패스_2" data-name="패스 2" d="M61.177,77.8C59.425,77.8,58,76.027,58,73.843V61.961C58,59.777,59.426,58,61.177,58H80.589c1.752,0,3.177,1.777,3.177,3.961V73.844c0,2.184-1.425,3.961-3.177,3.961H61.177Z" transform="translate(-48.383 -48.383)" fill="#f1dbaa"/>
+      <path id="패스_3" data-name="패스 3" d="M5.059,95.07v10.118a5.059,5.059,0,1,1,0-10.118Z" transform="translate(0 -80.747)" fill="#e58526"/>
+      <path id="패스_4" data-name="패스 4" d="M313.519,100.129a5.057,5.057,0,0,1-5.059,5.059V95.07A5.057,5.057,0,0,1,313.519,100.129Z" transform="translate(-268.519 -80.747)" fill="#e58526"/>
+      <path id="패스_5" data-name="패스 5" d="M144.029,0a5.057,5.057,0,0,0-5.059,5.059h10.119A5.058,5.058,0,0,0,144.029,0Z" transform="translate(-121.53)" fill="#e58526"/>
+      <g id="그룹_2" data-name="그룹 2" transform="translate(11.54 16.536)">
+        <path id="패스_6" data-name="패스 6" d="M99.449,108.46a2.849,2.849,0,1,0,2.849,2.849,2.857,2.857,0,0,0-2.849-2.849Z" transform="translate(-96.6 -108.46)" fill="#774710"/>
+        <circle id="타원_4" data-name="타원 4" cx="2.849" cy="2.849" r="2.849" transform="translate(16.223)" fill="#774710"/>
+      </g>
+    </g>
+  </g>
+</svg>

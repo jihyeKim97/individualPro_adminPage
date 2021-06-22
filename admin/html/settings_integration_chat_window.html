@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable = no">
+	<title>none title</title>
+	<link rel="stylesheet" type="text/css" href="../jquery-ui/common.css">
+	<link rel="stylesheet" type="text/css" href="../DataTables/datatables.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/common.css">
+	<script type="text/javascript" src="../js/jquery-3.5.0.min.js"></script>
+	<script type="text/javascript" src="../js/common.js"></script>
+	<script type="text/javascript" src="../DataTables/datatables.min.js"></script>
+	<script type="text/javascript" src="../jquery-ui/common.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="../css/settings_integration.css">
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			//메뉴 높이 조절 - 자바스크립트 인하여 페이지의 높이가 달라진다면 사용
+			heightAction();
+
+		});
+		window.onload = function() {
+			heightAction();
+		}
+	</script>
+
+
+</head>
+
+<body>
+	<!-- //-----------------------------상단 영역 -->
+	<header>
+		<div class="header_box width_box">
+			<!-- 상단 select box -->
+			<div class="top_logo_select_box selectAction">
+				<img alt="icon" class="logo_img" src="../images/chatbot_icon.svg">
+				<span class="text">HR</span>
+				<ul class="dataList">
+					<!-- type="value" 는 하단 input으로 값이 전달됨 -->
+					<li type="value" dataValue="HR"><img src="../images/chatbot_icon.svg" /><a href="#">HR</a></li>
+					<li type="value" dataValue="Finance"><img src="../images/chatbot_icon_gr.svg" /><a href="#">Finance</a></li>
+					<li type="value" dataValue="NEWS"><img src="../images/chatbot_icon_pu.svg" /><a href="#">NEWS</a></li>
+					<li type="value" dataValue="Test"><img src="../images/chatbot_icon_ye.svg" /><a href="#">Test</a></li>
+					<!-- dataUrl에 이동할 페이지 주소를 넣으면 페이지 이동 -->
+					<li type="link" dataValue="Skill List" dataUrl="/a"><img src="../images/Icon ionic-md-arrow-round-back.svg" /><a href="bot_list_skill.html">Skill List</a></li>
+				</ul>
+				<input type="hidden" value="" />
+			</div>
+			<!-- 상단 select box -->
+
+			<div class="user_btn">
+				<span>john</span>
+				<ul class="setting_box">
+					<li class="on"><a href="#">Admin</a></li>
+					<li><a href="bot_list_account_user_edit.html">setting</a></li>
+					<li><a href="#">logout</a></li>
+				</ul>
+			</div>
+		</div>
+
+	</header>
+
+	<!-- //-----------------------------상단 영역 -->
+	<div class="body_box width_box">
+
+		<!-- //------------------------ 메뉴 영역 -->
+		<!--
+			one_dapps 옆에 on 클래스 넣어주면 활성화
+			그룹 타입은 A 테그가 아닌 네무 테그 사용
+			ul off : 닫힘 표시
+			-->
+		<div class="menu_box">
+			<ul class="off">
+				<li><a class="one_dapps dashboard" href="dashboard.html">Dashboard</a></li>
+			</ul>
+			<ul class="off">
+				<li><a class="one_dapps statistics" href="statistics.html">Statistics</a></li>
+			</ul>
+
+			<!-- two_dapps 옆에 on 클래스 넣어주면 활성화 -->
+			<ul class="off">
+				<li>
+					<span class="one_dapps analytics" href="">
+						Analytics
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="9.148" viewBox="0 0 16 9.148">
+							<path id="Icon_ionic-ios-arrow-down" data-name="Icon ionic-ios-arrow-down" d="M14.19,17.637l6.05-6.055a1.139,1.139,0,0,1,1.615,0,1.153,1.153,0,0,1,0,1.62L15,20.062a1.141,1.141,0,0,1-1.577.033l-6.9-6.888a1.144,1.144,0,0,1,1.615-1.62Z"
+								transform="translate(-6.188 -11.246)" />
+						</svg>
+					</span>
+				</li>
+				<li><a class="two_dapps" href="analytics_intent.html">ㆍ Intent</a></li>
+				<li><a class="two_dapps" href="analytics_entity.html">ㆍ Entity</a></li>
+				<li><a class="two_dapps" href="analytics_usage.html">ㆍ Usage</a></li>
+				<li><a class="two_dapps" href="analytics_confidence.html">ㆍ Confidence</a></li>
+				<li><a class="two_dapps" href="analytics_recognition_rate.html">ㆍ Recognition Rate</a></li>
+				<li><a class="two_dapps" href="analytics_keyword.html">ㆍ Keywords</a></li>
+			</ul>
+
+			<ul class="off">
+				<li>
+					<span class="one_dapps monitoring">
+						Monitoring
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="9.148" viewBox="0 0 16 9.148">
+							<path id="Icon_ionic-ios-arrow-down" data-name="Icon ionic-ios-arrow-down" d="M14.19,17.637l6.05-6.055a1.139,1.139,0,0,1,1.615,0,1.153,1.153,0,0,1,0,1.62L15,20.062a1.141,1.141,0,0,1-1.577.033l-6.9-6.888a1.144,1.144,0,0,1,1.615-1.62Z"
+								transform="translate(-6.188 -11.246)" />
+						</svg>
+					</span>
+				</li>
+				<li><a class="two_dapps" href="monitoring_conversations.html">ㆍ Conversations</a></li>
+				<li><a class="two_dapps" href="monitoring_user_rating.html">ㆍ User Ratings</a></li>
+			</ul>
+
+			<ul class="off">
+				<li><a class="one_dapps reporting" href="reporting.html">Reporting</a></li>
+			</ul>
+
+			<ul class="">
+				<li>
+					<span class="one_dapps settings on">
+						Settings
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="9.148" viewBox="0 0 16 9.148">
+							<path id="Icon_ionic-ios-arrow-down" data-name="Icon ionic-ios-arrow-down" d="M14.19,17.637l6.05-6.055a1.139,1.139,0,0,1,1.615,0,1.153,1.153,0,0,1,0,1.62L15,20.062a1.141,1.141,0,0,1-1.577.033l-6.9-6.888a1.144,1.144,0,0,1,1.615-1.62Z"
+								transform="translate(-6.188 -11.246)" />
+						</svg>
+					</span>
+				</li>
+				<li><a class="two_dapps on" href="settings_integration.html">ㆍ integration</a></li>
+				<li><a class="two_dapps" href="settings_response_types.html">ㆍ Response Types</a></li>
+				<li><a class="two_dapps" href="settings_quick_replies.html">ㆍ Quick Replies</a></li>
+				<li><a class="two_dapps" href="settings_apis.html">ㆍ APIs</a></li>
+				<li><a class="two_dapps" href="settings_push.html">ㆍ Push</a></li>
+				<li><a class="two_dapps" href="settings_voice.html">ㆍ Voice</a></li>
+			</ul>
+		</div>
+		<!-- //------------------------ 메뉴 영역 -->
+
+		<!-- //------------------------ 컨텐츠 영역 -->
+		<div class="contents_box">
+
+			<ul class="tab_box">
+				<li class="on">Web</li>
+				<li>Android</li>
+				<li>iOS</li>
+				<li>Facebook Messenger</li>
+				<li>Slack</li>
+			</ul>
+
+			<h2 class="title">Web Integration</h2>
+
+
+			<ul class="sub_tab_box">
+				<li onclick="window.location.href='settings_integration_general.html'">General</li>
+				<li class="on">Chat Window</li>
+			</ul>
+
+			<!-- two_dapps 옆에 on 클래스 넣어주면 활성화 -->
+			<div class="contents on">
+				<table class="info_form">
+					<colgroup>
+						<col width="200px" />
+						<col width="*" />
+					</colgroup>
+					<tbody>
+						<tr>
+							<th class="v_t" rowspan="2">Apperance</th>
+							<td>
+								<span>Title</span>
+								<input type="text" placeholder="챗봇창의 제목을 입력하세요" class="m_l_50 w_580" />
+							</td>
+						</tr>
+						<tr>
+							<td class="no_b">
+								<span>Bot Icon</span>
+								<br />
+								<br />
+								<div class="img_box now img_box_120" style="background-image: url('../images/chatbot_icon_blue_shadow.svg');">
+									<img src="../images/tmp_skill_img.png" />
+									<span>현재 사용중</span>
+								</div>
+								<div class="img_regi">
+									<div class="ph"><img id="ph" src="#" alt="" /></div>
+									<input type="file" id="img_file" />
+									<a href="#self">Change</a>
+								</div>
+								<span class="msg_text">* Bot Icon은 change를 클릭하여 <br /> &nbsp;&nbsp;&nbsp;고정 사이즈 (28x28px)의 이미지를 업로드 하시기 바랍니다.</span>
+							</td>
+						</tr>
+						<tr>
+							<th class="v_t">Color<br />Theme</th>
+							<td class="theme_list">
+								<ul>
+									<li class="theme_active">
+										<div class="active">
+											<label style="background:#2644C5">&nbsp;</label>
+											<span>Blue</span>
+										</div>
+									</li>
+									<li class="theme_active">
+										<div class="active">
+											<label style="background:#B20F3B">&nbsp;</label>
+											<span>Crimson</span>
+										</div>
+									</li>
+									<li class="theme_active">
+										<div class="active">
+											<label style="background:#914EBA">&nbsp;</label>
+											<span>Purple</span>
+										</div>
+									</li>
+									<li class="theme_active">
+										<div class="active">
+											<label style="background:#746450">&nbsp;</label>
+											<span>Brown</span>
+										</div>
+									</li>
+								</ul>
+							</td>
+						</tr>
+						<tr>
+							<th class="v_t" rowspan="2">Font</th>
+							<td>
+								Font Type
+								<div class="checks">
+									<input type="radio" id="status_type_01" name="select_type" checked="checked">
+									<label for="status_type_01">Default</label>
+								</div>
+								<span class="c_g">Noto Sans kr</span>
+
+								&nbsp;&nbsp;
+
+								<div class="checks">
+									<input type="radio" id="status_type_02" name="select_type" checked="checked">
+									<label for="status_type_02">Custom</label>
+								</div>
+								<select class="" id="select_type03">
+									<option value="">Roboto</option>
+								</select>
+							</td>
+						<tr>
+							<td class="no_b">
+								<!--Font Size &nbsp;&nbsp;
+								<select class="" id="select_type04">
+									<option value="">대</option>
+									<option value="" selected>중</option>
+									<option value="">소</option>
+								</select>-->
+							</td>
+						</tr>
+						<tr>
+							<th class="v_t">Preview</th>
+							<td>
+								<button class="preview_btn" onclick="hide('chat-wrap');">Preview</button>
+
+								<div id="chat-wrap" class="chat" style="display:none;">
+									<div class="chat ovbg">
+										<div class="upper">
+											<h3>세아 홀딩스 챗봇</h3>
+											<a href="#n" class="close"><span class="blind">닫기</span></a>
+										</div>
+										<div class="cont scrolls">
+											<ul class="list">
+												<li>
+													<div class="vc">
+														<div class="txt">
+															<p>안녕하세요? 세아 챗봇입니다. <br />무엇을 도와드릴까요? <br />아래 버튼을 클릭해보세요! </p>
+															<p class="mg15t">※ 이전 단계로 돌아가고 싶으시면 왼쪽 하단의 버튼을 눌러주세요.</p>
+															<div class="rlz">
+																<p class="time">9:50pm</p>
+															</div>
+														</div>
+													</div>
+													<div class="hash">
+														<ul>
+															<li class="active"><a href="#n"><span>회의실 예약</span></a></li>
+															<li><a href="#n"><span>경조사</span></a></li>
+															<li><a href="#n"><span>회의실 위치</span></a></li>
+															<li><a href="#n"><span>주차장 이용문의</span></a></li>
+															<li><a href="#n"><span>휴가신청방법</span></a></li>
+															<li><a href="#n"><span>육아휴직문의</span></a></li>
+															<li><a href="#n"><span>출장비 정산</span></a></li>
+															<li><a href="#n"><span>근태</span></a></li>
+														</ul>
+													</div>
+
+												</li>
+												<li class="answer">
+													<div class="vc">
+														<div class="txt">
+															<p>남자 화장실 위치 알려줘! 지금 급해</p>
+															<div class="rlz">
+																<p class="time">9:50pm</p>
+															</div>
+														</div>
+													</div>
+												</li>
+												<li>
+													<div class="loader"><img src="../images/loader.gif" alt="" /></div>
+												</li>
+											</ul>
+											<div class="fgap"></div>
+										</div>
+										<div class="lower">
+											<div class="btns">
+												<div class="fix">
+													<a href="#n" class="prev-btn"><span>이전 답변</span></a>
+													<a href="#n" class="first-btn"><span>처음으로</span></a>
+												</div>
+											</div>
+											<a href="#n" class="hash-btn"><span class="blind">태그찾기</span></a>
+											<p class="chk-input">
+												<input type="text" value="무엇이든 물어보세요" autocomplete="off" onfocus="clearText(this)" onblur="defaultText(this)" />
+											</p>
+											<a href="#n" class="enter-btn"><span class="blind">전송</span></a>
+										</div>
+									</div>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>&nbsp;</th>
+							<td class="confirm_form">
+								<button class="save_btn">Save</button>
+								<button class="cancel_btn">Cancel</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		<footer></footer>
+		</div>
+	</div>
+
+	<!-- Create 팝업 -->
+	<div id="popup01" class="popup_box" role="dialog">
+		<button class="btn_list icon_button" onclick="window.location.href='settings_response_types_button.html'">Button</button>
+		<button class="btn_list icon_link">Link</button>
+		<button class="btn_list icon_card" onclick="window.location.href='settings_response_types_card.html'">Card</button>
+		<button class="btn_list icon_table">Table</button>
+		<button class="btn_list icon_phone">Phone</button>
+		<button class="btn_list icon_image" onclick="window.location.href='settings_response_types_image.html'">Image</button>
+		<button class="btn_list icon_video">Video</button>
+		<button class="btn_list icon_download">Download</button>
+		<button class="btn_list icon_select_box">Select Box</button>
+	</div>
+
+	<!-- delect 컴펌 창 -->
+	<div id="popup02" class="confirm_box" role="dialog">
+	</div>
+
+</body>
+
+</html>

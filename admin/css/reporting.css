@@ -1,0 +1,220 @@
+.body_box .contents_box .select_box .top_box {
+  text-align: left;
+  padding-left: 200px;
+  box-sizing: border-box;
+}
+
+.contents {
+  position: relative;
+}
+
+.contents .download_btn {
+  position: absolute;
+  bottom: 28px;
+}
+
+.contents .download_btn:hover {
+  background-color: #edf0ff;
+  color: #2644C5;
+  background-image: url(../images/icon_download.png);
+  background-position: left center;
+  background-repeat: no-repeat;
+}
+
+.c_r {
+  color: #B50C39;
+  float: right;
+  margin-bottom: 20px;
+  margin-top: 4px;
+}
+
+.ratings_box {
+  text-align: left;
+  position: relative;
+  height: 160px;
+  margin-top: 20px;
+  padding-left: 220px;
+}
+
+.reporting_title_box {
+  background: #EDF0F5;
+  position: relative;
+  padding: 30px 20px 30px 30px;
+  border-radius: 8px;
+}
+
+.reporting_title_box h3 {
+  font-size: 32px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.reporting_title_box span {
+  font-size: 14px;
+  margin-left: 20px;
+}
+
+.reporting_title_box .download_btn {
+  position: absolute;
+  right: 20px;
+  top: 25px;
+}
+
+
+.graph_data.persent {
+  height: 33px;
+  background: #D5D9E3;
+  margin-top: 18px
+}
+
+.graph_data {
+  height: 338px;
+  margin-top: 18px
+}
+
+.graph_data .graph_persent {
+  width: 70%;
+  height: 33px;
+  background: #4A65DD;
+  margin-top: 18px
+}
+
+.sub_bar_chart .chart_box p{
+  font-family: 'Noto Sans';
+  float: right;
+  margin-top: -30px;
+  color: #4A65DD;
+  font-weight: bold;
+  letter-spacing: 0.2px;
+}
+
+.main_chart {
+  position: relative;
+  padding: 20px;
+  height: auto;
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: 1px solid #EDF0F5;
+  margin-top: 2%;
+}
+
+.main_chart .chart_title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.main_chart .chart_sub_text_list {
+  position: absolute;
+  text-align: right;
+  top: 20px;
+  right: 20px;
+}
+
+.main_chart .chart_sub_text_list .chart_sub_text {
+  color: #272D48;
+  display: inline-block;
+  padding: 0px 10px;
+  border-right: 1px solid #DFE1EA;
+}
+
+.main_chart .chart_sub_text_list .chart_sub_text:last-child {
+  border-right: 0px solid #DFE1EA;
+  padding-right: 0px;
+}
+
+.main_chart .chart_box {
+  margin-top: 10px;
+  height: 400px;
+}
+
+.half_chart {
+  width: 49%;
+  margin-top: 2%;
+  margin-right: 2%;
+  display: inline-block;
+  padding: 20px;
+  box-sizing: border-box;
+  background: #EDF0F5;
+  border-radius: 8px;
+}
+
+.half_chart:last-child {
+  margin-right: 0px;
+  float: right;
+}
+
+.half_chart .chart_title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.half_chart .chart_box {
+  margin-top: 10px;
+  height: 150px;
+}
+
+.main_bar_chart {
+  width: 49%;
+  margin-top: 2%;
+  margin-right: 2%;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.main_bar_chart:last-child {
+  margin-right: 0px;
+  float: right;
+}
+
+.main_bar_chart .chart_title {
+  border-radius: 8px 8px 0px 0px;
+  display: block;
+  width: 100%;
+  padding: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  box-sizing: border-box;
+  background: #EDF0F5;
+}
+
+.main_bar_chart .chart_box {
+  height: 150px;
+  border-radius: 0px 0px 8px 8px;
+  height: 414px;
+  box-sizing: border-box;
+  padding: 20px;
+  border: 1px solid #EDF0F5;
+}
+
+.sub_bar_chart {
+  width: 49%;
+  margin-top: 2%;
+  margin-right: 2%;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #EDF0F5;
+  height: 120px;
+}
+
+.sub_bar_chart:last-child {
+  margin-right: 0px;
+  float: right;
+}
+
+.sub_bar_chart .chart_title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.sub_bar_chart .chart_box {
+  margin-top: 2%;
+}
+
+.body_box .contents_box .select_box {
+  border: 0;
+  margin-top: 0;
+  border-radius: 0;
+  padding: 0;
+}

@@ -1,0 +1,210 @@
+.select_box span {
+  background-image: url("../images/icon_time.png");
+  background-repeat: no-repeat;
+  background-position: left center;
+  display: inline-block;
+  padding-left: 26px;
+  float: right;
+  margin-bottom: 20px;
+}
+
+.search_btn {
+  height: 32px;
+  width: 32px;
+  text-indent: -99999px;
+  cursor: pointer;
+  background-image: url("../images/icon_search.png");
+  background-repeat: no-repeat;
+  padding: 0px;
+  position: absolute;
+  top: 10px;
+  right: 10px
+}
+
+.search_btn.on, .search_btn:hover {
+  background-image: url("../images/icon_search_on.png");
+}
+
+.contents .graph_main {
+  width: 74.4%;
+  height: 500px;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  border: 1px solid #DFE1EA;
+  border-radius: 8px;
+  float: left;
+  margin-top: 20px;
+  position: relative;
+}
+
+.contents .graph_main .graph_title {
+  font: Bold 16px Noto Sans;
+  letter-spacing: 0px;
+  color: #272D48;
+  margin-left: 10px;
+  margin-top: 10px
+}
+
+.contents .graph_main .count_box {
+  margin-top: 18px;
+  padding: 0px 10px;
+}
+
+.contents .graph_main .count_box .count_box_col {
+  width: 49.5%;
+  margin-right: 1%;
+  float: left;
+  background: #EDF0F5;
+  border-radius: 4px;
+}
+
+.contents .graph_main .count_box .count_box_col:last-child {
+  margin-right: 0%;
+}
+
+.contents .graph_main .count_box .count_box_col .count_box_title {
+  float: left;
+  width: 30%;
+}
+
+.contents .graph_main .count_box .count_box_col .count_box_title p {
+  padding: 15px 20px;
+  padding-right: 0px;
+  font: Bold 16px/26px Noto Sans;
+  letter-spacing: 0px;
+  color: #272D48;
+}
+
+.contents .graph_main .count_box .count_box_col .count_box_num {
+  float: left;
+  width: 32%;
+  margin-left: 1%;
+  padding: 15px 0px;
+}
+
+.contents .graph_main .count_box .count_box_col .count_box_num .count_box_num_title {
+  display: block;
+  font: 11px/15px Noto Sans;
+  padding-top: 4px;
+  color: #5F6374;
+}
+
+.contents .graph_main .count_box .count_box_col .count_box_num .count_box_num_text {
+  display: block;
+  font: Bold 28px/32px Noto Sans;
+}
+
+.contents .graph_main .graph {
+  margin: 10px;
+  height: 348px;
+}
+
+.contents .graph_sub {
+  float: right;
+  width: 24%;
+}
+
+.contents .graph_sub .graph_sub_box {
+  height: 210px;
+  background: #edf0f5;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  padding: 15px;
+  position: relative;
+}
+
+.contents .graph_sub .graph_sub_box:last {
+  margin-bottom: 0px;
+}
+
+.contents .graph_sub .graph_sub_box .graph_title {
+  font: Bold 16px Noto Sans;
+  letter-spacing: 0px;
+  color: #272D48;
+}
+
+.contents .graph_sub .graph_sub_box .graph_sub_progress {
+  height: 40px;
+  margin-top: 40px;
+  position: relative;
+}
+
+.contents .graph_sub .graph_sub_box .graph_sub_progress .graph_data {
+  position: absolute;
+  width: 100%;
+  height: 24px;
+  margin-top: 32px;
+  background: #AFB2BF;
+}
+
+.contents .graph_sub .graph_sub_box .graph_sub_progress .graph_data .graph_persent {
+  width: 70%;
+  height: 24px;
+  background: #2644C5;
+}
+
+.contents .graph_sub .graph_sub_box .graph_sub_progress .graph_data .graph_persent.color {
+  background: #4A9AB2;
+}
+
+.contents .graph_sub .graph_sub_box .graph_sub_progress p {
+  position: absolute;
+}
+
+.contents .graph_sub .graph_sub_box .graph_sub_progress .sub_date {
+  left: 0;
+  top: 0;
+  color: #5F6374;
+  font-weight: normal;
+	font-size: 14px;
+}
+
+
+.contents .graph_sub .graph_sub_box .graph_sub_progress .sub_persent {
+  right: 0;
+  top: 0;
+  color: #000000;
+  font-weight: bold;
+	font-size: 16px;
+}
+
+.contents .graph_row_box {
+  clear: both;
+  margin-top: 20px;
+}
+
+.contents .graph_row_box .graph_sub {
+  float: left;
+  width: 36.4%;
+  margin-right: 1.6%;
+}
+
+.contents .graph_row_box .graph_sub:first-child {
+  margin-left: 1px
+}
+
+.contents .graph_row_box .graph_sub:nth-child(2) {
+  margin-right: 0px
+}
+
+.contents .graph_row_box .graph_sub:last-child {
+  float: right;
+  width: 24%;
+  margin-right: 0px;
+}
+
+.contents .graph_row_box .graph_sub .graph_sub_box {
+  background: #ffffff;
+  border: 1px solid #DFE1EA;
+  height: 376px;
+}
+
+.contents .graph_row_box .graph_sub .graph_sub_box .graph_data {
+  height: 330px;
+}
+
+.body_box .contents_box .select_box {
+  border: 0;
+  margin-top: 0;
+  border-radius: 0;
+  padding: 0;
+}

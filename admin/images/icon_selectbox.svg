@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="30" viewBox="0 0 36 30">
+  <g id="그룹_3" data-name="그룹 3" transform="translate(-576 -388)">
+    <g id="사각형_52" data-name="사각형 52" transform="translate(612 388) rotate(90)" fill="none" stroke="#5f6374" stroke-width="4">
+      <rect width="30" height="36" rx="4" stroke="none"/>
+      <rect x="2" y="2" width="26" height="32" rx="2" fill="none"/>
+    </g>
+    <path id="Icon_material-arrow-drop-down" data-name="Icon material-arrow-drop-down" d="M10.5,15,18,22.5,25.5,15Z" transform="translate(576.5 385)" fill="#5f6374"/>
+  </g>
+</svg>

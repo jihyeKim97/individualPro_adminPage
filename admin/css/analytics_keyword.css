@@ -1,0 +1,274 @@
+/* datatable안 검색 기능 위치 */
+.dataTables_wrapper .dataTables_filter {
+  -ms-float: left;
+  -wekit-float: left;
+}
+
+.select_box .date_format {
+  -ms-margin-left: 15px;
+  -wekit-margin-left: 15px;
+}
+
+.contents .graph_main {
+  -ms-width: 100%;
+  -wekit-width: 100%;
+  -ms-height: 480px;
+  -wekit-height: 480px;
+  -ms-background: #edf0f5 0% 0% no-repeat padding-box;
+  -wekit-background: #edf0f5 0% 0% no-repeat padding-box;
+  -ms-border: 1px solid #edf0f5;
+  -wekit-border: 1px solid #edf0f5;
+  -ms-border-radius: 8px;
+  -wekit-border-radius: 8px;
+  -ms-margin-bottom: 20px;
+  -wekit-margin-bottom: 20px;
+}
+
+.contents .graph_main .graph {
+  -ms-margin: 10px;
+  -wekit-margin: 10px;
+  -ms-background: #ffffff;
+  -wekit-background: #ffffff;
+  -ms-height: 460px;
+  -wekit-height: 460px;
+}
+
+.contents .graph_sub {
+  -ms-width: 100%;
+  -wekit-width: 100%;
+}
+
+.contents .graph_sub .graph_sub_box {
+  -ms-height: 230px;
+  -wekit-height: 230px;
+  -ms-background: #edf0f5;
+  -wekit-background: #edf0f5;
+  -ms-border-radius: 8px;
+  -wekit-border-radius: 8px;
+  -ms-padding: 0px;
+  -wekit-padding: 0px;
+  -ms-height: 480px;
+  -wekit-height: 480px;
+  -ms-border: 1px solid #DFE1EA;
+  -wekit-border: 1px solid #DFE1EA;
+  -ms-box-sizing: border-box;
+  -wekit-box-sizing: border-box;
+  -ms-overflow: hidden;
+  -wekit-overflow: hidden;
+}
+
+.contents .graph_sub .graph_title.c_v {
+  -ms-padding: 20px 0;
+  -wekit-padding: 20px 0;
+  -ms-font: Bold 20px Noto Sans;
+  -wekit-font: Bold 20px Noto Sans;
+  -ms-letter-spacing: 0px;
+  -wekit-letter-spacing: 0px;
+  -ms-color: #272D48;
+  -wekit-color: #272D48;
+}
+
+.contents .graph_sub .graph_sub_box .graph_title {
+  -ms-font: Bold 20px Noto Sans;
+  -wekit-font: Bold 20px Noto Sans;
+  -ms-letter-spacing: 0px;
+  -wekit-letter-spacing: 0px;
+  -ms-color: #272D48;
+  -wekit-color: #272D48;
+  -ms-text-align: center;
+  -wekit-text-align: center;
+  -ms-padding: 20px 0px;
+  -wekit-padding: 20px 0px;
+}
+
+.contents .graph_sub .graph_sub_box .graph_data {
+  -ms-height: 409px;
+  -wekit-height: 409px;
+  -ms-background: #ffffff;
+  -wekit-background: #ffffff;
+}
+
+.data_list thead, .data_list2 thead {
+  -ms-display: none
+  -wekit-display: none
+}
+
+.data_list tbody tr td:nth-child(3n-1) {
+  -ms-text-align: left;
+  -wekit-text-align: left;
+}
+
+.data_list tbody tr td:nth-child(3n) {
+  -ms-border-right: 1px solid #e8eaef;
+  -wekit-border-right: 1px solid #e8eaef;
+}
+
+.data_list tbody tr td:last-child {
+  -ms-border-right: 0px solid #e8eaef;
+  -wekit-border-right: 0px solid #e8eaef;
+}
+
+.data_list2 tbody tr td:nth-child(2n) {
+  -ms-text-align: left;
+  -wekit-text-align: left;
+  -ms-border-right: 1px solid #e8eaef;
+  -wekit-border-right: 1px solid #e8eaef;
+}
+
+.data_list2 tbody tr td:last-child {
+  -ms-border-right: 0px solid #e8eaef;
+  -wekit-border-right: 0px solid #e8eaef;
+}
+
+.table_form {
+  -ms-clear: both;
+  -wekit-clear: both;
+  -ms-width: 47%;
+  -wekit-width: 47%;
+  -ms-margin: none;
+  -wekit-margin: none;
+  -ms-padding: 0;
+  -wekit-padding: 0;
+  -ms-display: inline-block;
+  -wekit-display: inline-block;
+}
+
+.table_form:last-child {
+  -ms-float: right;
+  -wekit-float: right;
+}
+
+.sub_title {
+  -ms-width: 100%;
+  -wekit-width: 100%;
+  -ms-font-size: 16px;
+  -wekit-font-size: 16px;
+  -ms-padding-top: 60px;
+  -wekit-padding-top: 60px;
+  -ms-font-weight: bold;
+  -wekit-font-weight: bold;
+  -ms-border-bottom: 1px solid #878a97;
+  -wekit-border-bottom: 1px solid #878a97;
+  -ms-padding-bottom: 15px;
+  -wekit-padding-bottom: 15px;
+}
+
+.btn_form {
+  -ms-float: right;
+  -wekit-float: right;
+  -ms-margin-top: 47px;
+  -wekit-margin-top: 47px;
+}
+
+.btn_form button {
+  -ms-margin-left: 10px;
+  -wekit-margin-left: 10px;
+}
+
+.bl_btn {
+  -ms-color: #2644C5;
+  -wekit-color: #2644C5;
+  -ms-background: #ffffff;
+  -wekit-background: #ffffff;
+  -ms-border: 1px solid #2644C5;
+  -wekit-border: 1px solid #2644C5;
+  -ms-font-size: 14px;
+  -wekit-font-size: 14px;
+  -ms-font-weight: bold;
+  -wekit-font-weight: bold;
+}
+
+.bl_btn:hover {
+  -ms-color: #2644C5;
+  -wekit-color: #2644C5;
+  -ms-background: #edf0ff;
+  -wekit-background: #edf0ff;
+  -ms-border: 1px solid #2644C5;
+  -wekit-border: 1px solid #2644C5;
+}
+
+.bl_btn:disabled {
+  -ms-color: #adb8e9;
+  -wekit-color: #adb8e9;
+  -ms-background: #ffffff;
+  -wekit-background: #ffffff;
+  -ms-border: 1px solid #adb8e9;
+  -wekit-border: 1px solid #adb8e9;
+}
+
+.btn_form .re_btn {
+  -ms-font-weight: bold;
+  -wekit-font-weight: bold;
+  -ms-color: #D1194B;
+  -wekit-color: #D1194B;
+  -ms-background: #ffffff;
+  -wekit-background: #ffffff;
+  -ms-border: 1px solid #D1194B;
+  -wekit-border: 1px solid #D1194B;
+  -ms-font-size: 14px;
+  -wekit-font-size: 14px;
+}
+
+.btn_form .re_btn:hover {
+  -ms-color: #D1194B;
+  -wekit-color: #D1194B;
+  -ms-background: #fff0f5;
+  -wekit-background: #fff0f5;
+  -ms-border: 1px solid #D1194B;
+  -wekit-border: 1px solid #D1194B;
+}
+
+.btn_form .re_btn:disabled {
+  -ms-color: #eda5b8;
+  -wekit-color: #eda5b8;
+  -ms-background: #ffffff;
+  -wekit-background: #ffffff;
+  -ms-border: 1px solid #eda5b8;
+  -wekit-border: 1px solid #eda5b8;
+}
+
+/* 5/29일 수정 사함 */
+.ui-widget button {
+  -ms-font-family: 'Noto Sans';
+  -wekit-font-family: 'Noto Sans';
+  -ms-font-size: 14px;
+  -wekit-font-size: 14px;
+  -ms-font-weight: bold;
+  -wekit-font-weight: bold;
+}
+
+.download_btn {
+  -ms-float: right;
+  -wekit-float: right;
+  -ms-padding: 8px 22px 8px 50px;
+  -wekit-padding: 8px 22px 8px 50px;
+  -ms-background-color: #ffffff;
+  -wekit-background-color: #ffffff;
+  -ms-color: #2644C5;
+  -wekit-color: #2644C5;
+  -ms-cursor: pointer;
+  -wekit-cursor: pointer;
+  -ms-background-image: url(../images/icon_download.png);
+  -wekit-background-image: url(../images/icon_download.png);
+  -ms-background-position: left center;
+  -wekit-background-position: left center;
+  -ms-background-repeat: no-repeat;
+  -wekit-background-repeat: no-repeat;
+  -ms-border: 1px solid #2644C5;
+  -wekit-border: 1px solid #2644C5;
+}
+
+.popup_box .download_btn:hover {
+  -ms-border: 1px solid #2644C5;
+  -wekit-border: 1px solid #2644C5;
+  -ms-background-color: #edf0ff;
+  -wekit-background-color: #edf0ff;
+  -ms-color: #2644C5;
+  -wekit-color: #2644C5;
+  -ms-background-image: url(../images/icon_download.png);
+  -wekit-background-image: url(../images/icon_download.png);
+  -ms-background-position: left center;
+  -wekit-background-position: left center;
+  -ms-background-repeat: no-repeat;
+  -wekit-background-repeat: no-repeat;
+}

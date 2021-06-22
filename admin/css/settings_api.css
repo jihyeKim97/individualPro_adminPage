@@ -1,0 +1,141 @@
+.body_box .contents_box .title {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  border-bottom: 1px solid #dfe2ea;
+  padding-bottom: 12px;
+  margin-bottom: 40px;
+}
+
+.create_btn {
+  color: #2644C5;
+  padding: 8px 23px;
+  background-color: #ffffff;
+  font-size: 14px;
+  border: 1px solid #2644C5;
+  font-weight: normal;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+/*api*/
+.insert_form {
+  border-bottom: 1px solid #E8EAEF;
+}
+
+.popup_box .table_div {
+  margin: 0 auto;
+  width: 100%;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+}
+
+.popup_box .table_div table {
+  position: relative;
+  width: 93%;
+  border-bottom: 1px solid #E8EAEF;
+  margin: 0 auto;
+}
+
+.popup_box .table_div .sub_title {
+  display: inline-block;
+  font-size: 16px;
+  font-weight: Bold;
+  padding-left: 30px;
+  padding-top: 20px;
+  margin: 0;
+}
+
+.table_div .input_roof {
+  width: 88%;
+  text-align: center;
+  padding: 20px;
+  margin: 10px auto;
+  background: #F4F6FA 0% 0% no-repeat padding-box;
+}
+
+.popup_box .table_sub {
+  height: auto;
+  width: 100%;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  padding-bottom: 25px;
+}
+
+.popup_box .table_sub table {
+  position: relative;
+  width: 93%;
+  margin: 0 auto;
+}
+
+.popup_box .table_sub .sub_title {
+  display: inline-block;
+  font-size: 16px;
+  font-weight: Bold;
+  padding-left: 30px;
+  padding-top: 20px;
+  margin: 0;
+}
+
+.table_sub .input_roof {
+  width: 88%;
+  text-align: center;
+  padding: 20px;
+  margin: 0 auto;
+  background: #F4F6FA 0% 0% no-repeat padding-box;
+}
+
+.text_list input[type="text"] {
+  width: 245px;
+}
+
+.input_roof .text_list li {
+  margin-bottom: 10px;
+}
+
+.input_roof .text_list .finally {
+  margin-bottom: 0;
+}
+
+.input_roof .text_list li .m_btn {
+  margin-left: 5px;
+  background: #d9dee5;
+  color: #000000;
+}
+
+.input_roof .text_list li button {
+  padding: 8px 16px;
+  top: 0px;
+}
+
+.input_roof .text_list li .p_btn {
+  margin-left: 8px;
+}
+
+.input_roof .text_list li button {
+  padding: 8px 16px;
+  top: 0px;
+}
+
+.textarea_div {
+  width: 88%;
+  padding: 20px;
+  margin: 0 auto;
+  background: #F4F6FA 0% 0% no-repeat padding-box;
+}
+
+.textarea_div p {
+  font-size: 14px;
+  letter-spacing: 0px;
+  color: #272D48;
+}
+
+.bottom_ma {
+  margin-bottom: 5px;
+}
+
+.popup_box .insert_form tr:last-child td {
+  padding-bottom: 15px;
+}
+
+.popup_box .insert_form tr:first-child td {
+  padding-top: 15px;
+}

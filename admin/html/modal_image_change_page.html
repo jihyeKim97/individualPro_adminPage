@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable = no">
+	<title>none title</title>
+	<link rel="stylesheet" type="text/css" href="../jquery-ui/common.css">
+	<link rel="stylesheet" type="text/css" href="../DataTables/datatables.min.css">
+	<link rel="stylesheet" type="text/css" href="../DataTables/buttons.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/common.css">
+	<link rel="stylesheet" type="text/css" href="../css/daterangepicker.css" />
+	<script type="text/javascript" src="../js/jquery-3.5.0.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+	<script type="text/javascript" src="../js/common.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+	<script type="text/javascript" src="../DataTables/datatables.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js"></script>
+	<script type="text/javascript" src="../jquery-ui/common.js"></script>
+
+
+	<script type="text/javascript">
+		// --------------------- 모달 1 --------------------------------------------//
+
+		function onInfo01() {
+			//사용될 글짜
+			var btnText = ["확인", "취소"];
+			modalVer01("popup_modal_01", "정말로 삭제하시겠습니까?", "위 내용을 삭제 하겠습니다.위 내용을 삭제 하겠습니다.위 내용을 삭제 하겠습니다.위 내용을 삭제 하겠습니다.", btnText, modalReturn01); //
+		}
+
+		var modalReturn01 = function() {
+			alert(123);
+			$(".modal_ver_1").dialog("close");
+		}
+
+
+		// --------------------- 모달 2 --------------------------------------------//
+		function onInfo02() {
+			//사용될 글짜
+			var btnText = ["확인"];
+			modalVer02("popup_modal_02", "정말로 삭제하시겠습니까?", "위 내용을 삭제 하겠습니다.위 내용을 삭제 하겠습니다.위 내용을 삭제 하겠습니다.위 내용을 삭제 하겠습니다.", btnText, modalReturn02); //
+		}
+
+		var modalReturn02 = function() {
+			alert(123);
+			$(".modal_ver_2").dialog("close");
+		}
+		//로드가 된 후 메뉴바 높이 조절
+		window.onload = function() {
+			heightAction();
+		}
+	</script>
+
+</head>
+
+<body>
+
+	<button type="button" name="button" onclick="onInfo01();">모달 버전 1</button>
+	<button type="button" name="button" onclick="onInfo02();">모달 버전 2</button>
+
+
+	<!-- // --------------------- 모달 1 --------------------------------------------// -->
+	<!-- 아이디와 클래스명은 고정인 상태로 사용 -->
+	<div id="popup_modal_01" class="modal_ver_1" role="dialog">
+	</div>
+<!-- 공통 css에서 관리 -->
+	<!-- <style type="text/css">
+		#popup_modal_01 {
+			overflow: visible !important;
+			word-break: keep-all;
+			word-break: break-all;
+		}
+
+		#popup_modal_01:after {
+			content: '';
+			position: absolute;
+			top: -57px;
+			right: 20px;
+			width: 32px;
+			height: 32px;
+			/* 이미지만 변경해서 쓰시면 됩니다*/
+			/* background: url(../images/error-32.png) no-repeat 100% 100%; */
+			/* background: url(../images/info-32.png) no-repeat 100% 100%; */
+			background: url(../images/warning-32.png) no-repeat 100% 100%;
+		}
+	</style> -->
+
+
+	<!-- // --------------------- 모달 2 --------------------------------------------// -->
+	<!-- 아이디와 클래스명은 고정인 상태로 사용해주세요 -->
+	<div id="popup_modal_02" class="modal_ver_2" role="dialog">
+	</div>
+<!-- 공통 css에서 관리 -->
+	<!-- <style type="text/css">
+		#popup_modal_02 {
+			overflow: visible !important;
+			word-break: keep-all;
+			word-break: break-all;
+		}
+
+		#popup_modal_02:after {
+			content: '';
+			position: absolute;
+			top: -57px;
+			right: 20px;
+			width: 32px;
+			height: 32px;
+			/* 이미지만 변경해서 쓰시면 됩니다*/
+			/* background: url(../images/error-32.png) no-repeat 100% 100%; */
+			/* background: url(../images/info-32.png) no-repeat 100% 100%; */
+			background: url(../images/warning-32.png) no-repeat 100% 100%;
+		}
+	</style> -->
+
+</body>
+
+</html>

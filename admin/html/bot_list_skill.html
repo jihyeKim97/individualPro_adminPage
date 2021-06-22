@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable = no">
+		<title>none title</title>
+		<link rel="stylesheet" type="text/css" href="../jquery-ui/common.css">
+		<link rel="stylesheet" type="text/css" href="../DataTables/datatables.min.css">
+		<link rel="stylesheet" type="text/css" href="../DataTables/buttons.dataTables.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/common.css">
+		<link rel="stylesheet" type="text/css" href="../css/daterangepicker.css"/>
+		<script type="text/javascript" src="../js/jquery-3.5.0.min.js"></script>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+		<script type="text/javascript" src="../js/common.js"></script>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+		<script type="text/javascript" src="../DataTables/datatables.min.js"></script>
+		<script src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+		<script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js"></script>
+		<script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js"></script>
+		<script type="text/javascript" src="../jquery-ui/common.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="../css/bot_list.css">
+
+		<script type="text/javascript">
+			$(document).ready(function(){
+
+				//메뉴 높이 조절 - 자바스크립트 인하여 페이지의 높이가 달라진다면 사용
+				heightAction();
+			});
+
+			function onCreate(){
+				//버튼 등록 팝업 열기
+				popupOpen("popup01", 600, 515, "Skill Setting");
+			}
+
+			function onModify(){
+				//버튼 등록 팝업 열기
+				popupOpen("popup02", 600, 515, "Skill Setting");
+			}
+			//delete 클릭시 컴펌창 열기
+			function onDelete(){
+				//사용될 글짜
+				var btnText = ["삭제", "취소"];//0:승인버튼에 선택할 사용할 글짜, 1:취소버튼 사용될 글짜
+				confirmOpen("popup03", "정말로 삭제하시겠습니까?", "위 내용을 삭제 하겠습니다.", btnText, confirmReturn); //
+
+			}
+
+			//리턴될 액션
+			var confirmReturn = function (){
+				alert(123);
+				$(".confirm_box").dialog( "close" ); //컴펌창 닫기 - 반드시 필요
+			}
+			//로드가 된 후 메뉴바 높이 조절
+			window.onload = function() {
+				heightAction();
+			}
+
+		</script>
+
+	</head>
+	<body>
+		<!-- //-----------------------------상단 영역 -->
+		<header>
+			<div class="header_box width_box">
+				<h1 class="logo">ChatBot</h1>
+
+				<div class="user_btn">
+					<span>john</span>
+					<ul class="setting_box">
+						<li class="on"><a href="#">Admin</a></li>
+						<li><a href="bot_list_account_user_edit.html">setting</a></li>
+						<li><a href="#">logout</a></li>
+					</ul>
+				</div>
+			</div>
+
+		</header>
+
+		<!-- //-----------------------------상단 영역 -->
+		<div class="body_box w_1200">
+
+			<ul class="tab_box">
+				<li class="on" onclick="location.href='bot_list_skill.html'">Skill</li>
+				<li  onclick="location.href='bot_list_account.html'">Account</li>
+			</ul>
+
+			<!-- on이 있어서 활성화 -->
+			<div class="contents_box on">
+				<h2 class="title">Skill List</h2>
+
+				<div class="top_btn_box">
+					<button onclick="onCreate();" class="create_btn">Create</button>
+				</div>
+
+				<div class="skill_list">
+
+					<div class="icon_btn" onclick="location.href='dashboard.html'">
+						<img src="../images/icon_skilllist_hr.svg"/>
+						<span>HR</span>
+					</div>
+					<span class="date_text">2020-03-12 14:23</span>
+					<button class="" onclick="onModify();">Edit</button>
+
+				</div>
+				<div class="skill_list">
+
+					<div class="icon_btn">
+						<img src="../images/icon_skilllist_finance.svg"/>
+						<span>Finance</span>
+					</div>
+					<span class="date_text">2020-03-12 14:23</span>
+					<button class="">Edit</button>
+
+				</div>
+				<div class="skill_list">
+
+					<div class="icon_btn">
+						<img src="../images/icon_skilllist_news.svg"/>
+						<span>NEWS</span>
+					</div>
+					<span class="date_text">2020-03-12 14:23</span>
+					<button class="">Edit</button>
+
+				</div>
+				<!-- if(count % 4 == 0) 일때 no_magin_r 클래스 반드시 추가  -->
+				<div class="skill_list no_magin_r off">
+
+					<div class="icon_btn">
+						<img src="../images/icon_skilllist_test.svg"/>
+						<span>Test</span>
+					</div>
+					<span class="date_text">2020-03-12 14:23</span>
+					<button class="">Edit</button>
+
+				</div>
+
+			</div>
+
+			<!-- 등록 팝업창 -->
+			<div id="popup01" class="popup_box" role="dialog">
+				<span class="sub_title">Skill info</span>
+				<span class="warning_text">* 모든 필드는 필수 입력 항목 입니다.</span>
+				<table class="insert_form">
+					<colgroup>
+						<col width="150px">
+						<col width="*">
+					</colgroup>
+					<tbody>
+						<tr>
+							<th>Skill Name</th>
+							<td><input type="text" name=""/></td>
+						</tr>
+						<tr>
+							<th>Menu Display</th>
+							<td>
+								<div class="checks">
+									<input type="radio" id="status_type_01" name="select_type" checked="checked">
+									<label for="status_type_01">Yes</label>
+								</div>
+								<div class="checks">
+									<input type="radio" id="status_type_02" name="select_type" checked="checked">
+									<label for="status_type_02">No</label>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>Assistant ID</th>
+							<td><input type="text" name=""/></td>
+						</tr>
+						<tr>
+							<th>Resource URL</th>
+							<td><input type="text" name=""/></td>
+						</tr>
+						<tr>
+							<th>API Key</th>
+							<td><input type="text" name=""/></td>
+						</tr>
+					</tbody>
+				</table>
+
+
+				<div class="confirm_form">
+					<button class="save_btn">Save</button>
+					<button class="cancel_btn" onclick="$('#popup01').dialog( 'close' )">Cancel</button>
+				</div>
+
+			</div>
+
+			<!-- 수정 팝업창 -->
+			<div id="popup02" class="popup_box" role="dialog">
+				<button class="pop_delete_btn" onclick="onDelete();">Delete</button>
+				<span class="sub_title">Skill info</span>
+				<table class="insert_form">
+					<colgroup>
+						<col width="150px">
+						<col width="*">
+					</colgroup>
+					<tbody>
+						<tr>
+							<th>Skill Name</th>
+							<td><input type="text" name=""/></td>
+						</tr>
+						<tr>
+							<th>Menu Display</th>
+							<td>
+								<div class="checks">
+									<input type="radio" id="status_type_01" name="select_type" checked="checked">
+									<label for="status_type_01">Yes</label>
+								</div>
+								<div class="checks">
+									<input type="radio" id="status_type_02" name="select_type" checked="checked">
+									<label for="status_type_02">No</label>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>Assistant ID</th>
+							<td><input type="text" name=""/></td>
+						</tr>
+						<tr>
+							<th>Resource URL</th>
+							<td><input type="text" name=""/></td>
+						</tr>
+						<tr>
+							<th>API Key</th>
+							<td><input type="text" name=""/></td>
+						</tr>
+					</tbody>
+				</table>
+
+				<!-- delect 컴펌 창 -->
+				<div id="popup03" class="confirm_box" role="dialog">
+				</div>
+
+				<div class="confirm_form">
+					<button class="save_btn">Save</button>
+					<button class="cancel_btn" onclick="$('#popup02').dialog( 'close' )">Cancel</button>
+				</div>
+
+			</div>
+
+		</div>
+
+	</body>
+</html>

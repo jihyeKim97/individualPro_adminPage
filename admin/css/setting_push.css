@@ -1,0 +1,163 @@
+.body_box .contents_box .title {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  border-bottom: 1px solid #dfe2ea;
+  padding-bottom: 12px;
+  margin-bottom: 40px;
+}
+.create_btn {
+  color: #2644C5;
+  padding: 8px 23px;
+  background-color: #ffffff;
+  font-size: 14px;
+  border: 1px solid #2644C5;
+  font-weight: normal;
+  cursor: pointer;
+  margin-right: 10px;
+}
+/*Push*/
+.input_date_form {
+width: 220px;
+}
+
+.popup_box table tbody tr td input[type="textarea"] {
+  margin: 0px;
+  width: 95%;
+  height: 68px;
+  padding: 8px 10px;
+  resize: none;
+  border-color: #E8EAEF;
+  border: 1px solid #E8EAEF;
+}
+
+.date_format {
+  width: 230px;
+}
+
+.picture_text {
+    font-size: 12px;
+    font-family: 'Noto Sans';
+    color: #bcbcbc;
+  }
+/*card input file images url css*/
+.filebox_cr input[type="file"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  border: 1px solid #E8EAEF;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.filebox_cr label {
+  width: 70px;
+  text-align: center;
+  display: inline-block;
+  padding: .5em .75em;
+  font: normal 14px/19px 'Noto Sans';
+  color: #fff;
+  line-height: normal;
+  vertical-align: middle;
+  cursor: pointer;
+  background: #2644C5 0% 0% no-repeat padding-box;
+  border-radius: 4px;
+}
+
+.filebox_cr label:hover {
+  width: 70px;
+  text-align: center;
+  display: inline-block;
+  padding: .5em .75em;
+  font: normal 14px/19px 'Noto Sans';
+  color: #fff;
+  line-height: normal;
+  vertical-align: middle;
+  cursor: pointer;
+  background: #193095 0% 0% no-repeat padding-box;
+  border-radius: 4px;
+}
+
+/* named upload */
+.filebox_cr .upload-name_cr {
+  margin-right: 5px;
+  width: 208px;
+  display: inline-block;
+  padding: .5em .75em;
+  margin-bottom: 3px;
+  /* label의 패딩값과 일치 */
+  font-size: inherit;
+  font-family: inherit;
+  line-height: normal;
+  vertical-align: middle;
+  background-color: #fff;
+  border: 1px solid #E8EAEF;
+  -webkit-appearance: none;
+  /* 네이티브 외형 감추기 */
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/*card input file images url css*/
+.filebox input[type="file"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  border: 1px solid #E8EAEF;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.filebox label {
+  width: 70px;
+  text-align: center;
+  display: inline-block;
+  padding: .5em .75em;
+  font: normal 14px/19px 'Noto Sans';
+  color: #fff;
+  line-height: normal;
+  vertical-align: middle;
+  cursor: pointer;
+  background: #2644C5 0% 0% no-repeat padding-box;
+  border-radius: 4px;
+}
+
+.filebox label:hover {
+  width: 70px;
+  text-align: center;
+  display: inline-block;
+  padding: .5em .75em;
+  font: normal 14px/19px 'Noto Sans';
+  color: #fff;
+  line-height: normal;
+  vertical-align: middle;
+  cursor: pointer;
+  background: #193095 0% 0% no-repeat padding-box;
+  border-radius: 4px;
+}
+
+/* named upload */
+.filebox .upload-name {
+  margin-right: 5px;
+  width: 208px;
+  display: inline-block;
+  padding: .5em .75em;
+  margin-bottom: 3px;
+  /* label의 패딩값과 일치 */
+  font-size: inherit;
+  font-family: inherit;
+  line-height: normal;
+  vertical-align: middle;
+  background-color: #fff;
+  border: 1px solid #E8EAEF;
+  -webkit-appearance: none;
+  /* 네이티브 외형 감추기 */
+  -moz-appearance: none;
+  appearance: none;
+}

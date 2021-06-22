@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable = no">
+		<title>none title</title>
+		<link rel="stylesheet" type="text/css" href="../jquery-ui/common.css">
+		<link rel="stylesheet" type="text/css" href="../DataTables/datatables.min.css">
+		<link rel="stylesheet" type="text/css" href="../DataTables/buttons.dataTables.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/common.css">
+		<link rel="stylesheet" type="text/css" href="../css/daterangepicker.css"/>
+		<script type="text/javascript" src="../js/jquery-3.5.0.min.js"></script>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+		<script type="text/javascript" src="../js/common.js"></script>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+		<script type="text/javascript" src="../DataTables/datatables.min.js"></script>
+		<script src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+		<script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js"></script>
+		<script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js"></script>
+		<script type="text/javascript" src="../jquery-ui/common.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="../css/settings_response_types.css">
+
+		<script type="text/javascript">
+			$(document).ready(function(){
+
+				//달력 넣기
+				initDaterangepicker('right');
+				$("#table_id").DataTable({
+					// 표시 건수기능 숨기기
+					//lengthChange: false,
+					// 정렬 기능 숨기기
+					//ordering: false,
+					// 정보 표시 숨기기
+					//info: false,
+					// 페이징 기능 숨기기
+					//aging: false,
+					// 검색 기능 숨기기
+					searching: false,
+					dom: 'l<"right" Bf>rtip',
+					buttons: [
+						//'copyHtml5',
+						//'excelHtml5',
+						//'csvHtml5',
+						//'pdfHtml5'
+					]
+					});
+				$("#table_id2").DataTable({
+					// 표시 건수기능 숨기기
+					lengthChange: false,
+					// 정렬 기능 숨기기
+					//ordering: false,
+					// 정보 표시 숨기기
+					//info: false,
+					// 페이징 기능 숨기기
+					//aging: false,
+					// 검색 기능 숨기기
+					searching: false,
+					dom: 'l<"right" Bf>rtip',
+					buttons: [
+						//'copyHtml5',
+						//'excelHtml5',
+						//'csvHtml5',
+						//'pdfHtml5'
+					]
+					});
+				//메뉴 높이 조절 - 자바스크립트 인하여 페이지의 높이가 달라진다면 사용
+				heightAction();
+
+				//버튼 등록 팝업 열기
+				popupOpen("popup01", 1000, "auto", "Video Setting");
+			});
+
+			//delete 클릭시 컴펌창 열기
+			function onDelete(){
+				//사용될 글짜
+				var btnText = ["삭제", "취소"];//0:승인버튼에 선택할 사용할 글짜, 1:취소버튼 사용될 글짜
+				confirmOpen("popup02", "정말로 삭제하시겠습니까?", "선택하신 Response Type을 삭제 합니다.", btnText, confirmReturn); //
+			}
+
+			function onPreview(){
+				noTitlePopupOpen("popup03", 220, "auto");
+			}
+
+			//create 클릭시 팝업 열기
+			function onCreate(){
+				popupOpen("popup04", 600, "auto", "Response Type Select"); //열릴 팝업 아이디, 팝업 넓이, 팝업 높이, 팝업 타이틀
+			}
+
+			//리턴될 액션
+			var confirmReturn = function (){
+				alert(123);
+				$(".confirm_box").dialog( "close" ); //컴펌창 닫기 - 반드시 필요
+			}
+			//로드가 된 후 메뉴바 높이 조절
+			window.onload = function() {
+				heightAction();
+			}
+		</script>
+
+	</head>
+	<body>
+		<!-- //-----------------------------상단 영역 -->
+		<header>
+			<div class="header_box width_box">
+				<!-- 상단 select box -->
+				<div class="top_logo_select_box selectAction">
+					<img alt="icon" class="logo_img" src="../images/chatbot_icon.svg">
+					<span class="text">HR</span>
+					<ul class="dataList">
+						<!-- type="value" 는 하단 input으로 값이 전달됨 -->
+						<li type="value" dataValue="HR"><img src="../images/chatbot_icon.svg"/><a href="#">HR</a></li>
+						<li type="value" dataValue="Finance"><img src="../images/chatbot_icon_gr.svg"/><a href="#">Finance</a></li>
+						<li type="value" dataValue="NEWS"><img src="../images/chatbot_icon_pu.svg"/><a href="#">NEWS</a></li>
+						<li type="value" dataValue="Test"><img src="../images/chatbot_icon_ye.svg"/><a href="#">Test</a></li>
+						<!-- dataUrl에 이동할 페이지 주소를 넣으면 페이지 이동 -->
+						<li type="link"  dataValue="Skill List" dataUrl="/a"><img src="../images/Icon ionic-md-arrow-round-back.svg"/><a href="bot_list_skill.html">Skill List</a></li>
+					</ul>
+					<input type="hidden" value=""/>
+				</div>
+				<!-- 상단 select box -->
+
+				<div class="user_btn">
+					<span>john</span>
+					<ul class="setting_box">
+						<li class="on"><a href="#">Admin</a></li>
+						<li><a href="bot_list_account_user_edit.html">setting</a></li>
+						<li><a href="#">logout</a></li>
+					</ul>
+				</div>
+			</div>
+
+		</header>
+
+		<!-- //-----------------------------상단 영역 -->
+		<div class="body_box width_box">
+
+			<!-- //------------------------ 메뉴 영역 -->
+			<!--
+			one_dapps 옆에 on 클래스 넣어주면 활성화
+			그룹 타입은 A 테그가 아닌 네무 테그 사용
+			ul off : 닫힘 표시
+			-->
+			<div class="menu_box">
+				<ul class="off">
+					<li><a class="one_dapps dashboard" href="dashboard.html">Dashboard</a></li>
+				</ul>
+				<ul class="off">
+				<li><a class="one_dapps statistics" href="statistics.html">Statistics</a></li>
+				</ul>
+
+				<!-- two_dapps 옆에 on 클래스 넣어주면 활성화 -->
+				<ul class="off">
+					<li>
+						<span class="one_dapps analytics" href="">
+							Analytics
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="9.148" viewBox="0 0 16 9.148">
+								<path id="Icon_ionic-ios-arrow-down" data-name="Icon ionic-ios-arrow-down" d="M14.19,17.637l6.05-6.055a1.139,1.139,0,0,1,1.615,0,1.153,1.153,0,0,1,0,1.62L15,20.062a1.141,1.141,0,0,1-1.577.033l-6.9-6.888a1.144,1.144,0,0,1,1.615-1.62Z" transform="translate(-6.188 -11.246)"/>
+							</svg>
+						</span>
+					</li>
+					<li><a class="two_dapps" href="analytics_intent.html">ㆍ Intent</a></li>
+					<li><a class="two_dapps" href="analytics_entity.html">ㆍ Entity</a></li>
+					<li><a class="two_dapps" href="analytics_usage.html">ㆍ Usage</a></li>
+					<li><a class="two_dapps" href="analytics_confidence.html">ㆍ Confidence</a></li>
+					<li><a class="two_dapps" href="analytics_recognition_rate.html">ㆍ Recognition Rate</a></li>
+					<li><a class="two_dapps" href="analytics_keyword.html">ㆍ Keywords</a></li>
+					<li><a class="two_dapps" href="analytics_test_examples.html">ㆍ Test Examples</a></li>
+				</ul>
+
+				<ul class="off">
+					<li>
+						<span class="one_dapps monitoring">
+							Monitoring
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="9.148" viewBox="0 0 16 9.148">
+								<path id="Icon_ionic-ios-arrow-down" data-name="Icon ionic-ios-arrow-down" d="M14.19,17.637l6.05-6.055a1.139,1.139,0,0,1,1.615,0,1.153,1.153,0,0,1,0,1.62L15,20.062a1.141,1.141,0,0,1-1.577.033l-6.9-6.888a1.144,1.144,0,0,1,1.615-1.62Z" transform="translate(-6.188 -11.246)"/>
+							</svg>
+						</span>
+					</li>
+					<li><a class="two_dapps" href="monitoring_conversations.html">ㆍ Conversations</a></li>
+					<li><a class="two_dapps" href="monitoring_user_ratings.html">ㆍ User Ratings</a></li>
+				</ul>
+
+				<ul class="off">
+					<li><a class="one_dapps reporting" href="">Reporting</a></li>
+				</ul>
+
+				<ul class="">
+					<li>
+						<span class="one_dapps settings on">
+							Settings
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="9.148" viewBox="0 0 16 9.148">
+								<path id="Icon_ionic-ios-arrow-down" data-name="Icon ionic-ios-arrow-down" d="M14.19,17.637l6.05-6.055a1.139,1.139,0,0,1,1.615,0,1.153,1.153,0,0,1,0,1.62L15,20.062a1.141,1.141,0,0,1-1.577.033l-6.9-6.888a1.144,1.144,0,0,1,1.615-1.62Z" transform="translate(-6.188 -11.246)"/>
+							</svg>
+						</span>
+					</li>
+					<li><a class="two_dapps" href="settings_integration.html">ㆍ Integration</a></li>
+					<li><a class="two_dapps on" href="settings_response_types.html">ㆍ Response Types</a></li>
+					<li><a class="two_dapps" href="settings_quick_replies.html">ㆍ Quick Replies</a></li>
+					<li><a class="two_dapps" href="settings_apis.html">ㆍ APIs</a></li>
+					<li><a class="two_dapps" href="settings_push.html">ㆍ Push</a></li>
+					<li><a class="two_dapps" href="settings_voice.html">ㆍ Voice</a></li>
+				</ul>
+			</div>
+			<!-- //------------------------ 메뉴 영역 -->
+
+			<!-- //------------------------ 컨텐츠 영역 -->
+			<div class="contents_box">
+				<h2 class="title">Response Types</h2>
+
+
+				<button onclick="onCreate();" class="create_btn">Create</button>
+				<button onclick="onDelete();" class="delete_btn">Delete</button>
+
+				<div class="contents">
+
+					<!-- 리스트 -->
+					<table class="data_list" id="table_id">
+						<colgroup>
+							<col width="9%"/>
+							<col width="12%"/>
+							<col width="*"/>
+							<col width="*%"/>
+							<col width="20%"/>
+							<col width="9%"/>
+							<col width="9%"/>
+						</colgroup>
+						<thead>
+							<tr>
+								<th>Select</th>
+								<th>ID</th>
+								<th>Type</th>
+								<th>Status</th>
+								<th>Last Modified</th>
+								<th>Preview</th>
+								<th>Edit</th>
+							</tr>
+						</thead>
+						<tbody>
+							<!-- roof 시작 -->
+							<tr>
+								<td><input type="checkbox" /></td>
+								<td>100</td>
+								<td>button</td>
+								<td>Active</td>
+								<td>2020-04-28 00:00:00</td>
+								<td><button onclick="onPreview(1);" class="blue_btn">Preview</button></td>
+								<td><button  onclick="window.location.href='settings_response_types_button.html'">Edit</button></td>  <!-- settings_response_types_button.html 과 같음 -->
+							</tr>
+							<!-- roof 끝 -->
+						</tbody>
+					</table>
+					<!-- 리스트 -->
+
+				</div>
+
+			</div>
+		</div>
+
+		<!-- 버튼 팝업창 -->
+		<div id="popup01" class="popup_box" role="dialog">
+			<table class="insert_form">
+				<colgroup>
+					<col width="150px">
+					<col width="180px">
+					<col width="80px">
+					<col width="*">
+				</colgroup>
+				<tbody>
+					<tr>
+						<th>Type ID</th>
+						<td><input type="text" name=""/></td>
+						<th>Status</th>
+						<td>
+							<div class="checks">
+								<input type="radio" id="status_type_01" name="select_type" checked="checked">
+								<label for="status_type_01">Active</label>
+							</div>
+							<div class="checks">
+								<input type="radio" id="status_type_02" name="select_type" checked="checked">
+								<label for="status_type_02">Inactive</label>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="btn_form">
+				<button class="add_btn">Add Rows</button>
+				<button class="dup_btn">Duplicate</button>
+				<button class="del_btn"  onclick="onDelete();">Delete</button>
+			</div>
+
+			<table class="list_form video" id="table_id2">
+				<colgroup>
+					<col width="57px"/>
+					<col width="424px"/>
+					<col width="113px"/>
+					<col width="113px"/>
+					<col width="113px"/>
+					<col width="113px"/>
+				</colgroup>
+				<thead>
+					<tr>
+						<th>&nbsp;</th>
+						<th>Video URL</th>
+						<th>Start</th>
+						<th>End</th>
+						<th>Auto Play</th>
+						<th>Sort Order</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- roof 시작 -->
+					<tr>
+						<td><input type="checkbox" /></td>
+						<td><input type="text" name=""/></td>
+						<td><input type="text" name=""/></td>
+						<td><input type="text" name=""/></td>
+						<td><input type="checkbox" /></td>
+						<td><input type="text" name=""/></td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" /></td>
+						<td><input type="text" name=""/></td>
+						<td><input type="text" name=""/></td>
+						<td><input type="text" name=""/></td>
+						<td><input type="checkbox" /></td>
+						<td><input type="text" name=""/></td>
+					</tr>
+					<!-- roof 끝 -->
+				</tbody>
+			</table>
+
+			<div class="confirm_form">
+				<button class="save_btn">Save</button>
+				<button class="cancel_btn" onclick="$('#popup01').dialog( 'close' )">Cancel</button>
+			</div>
+
+		</div>
+
+		<!-- delect 컴펌 창 -->
+		<div id="popup02" class="confirm_box" role="dialog">
+		</div>
+
+
+		<!-- 이미지 팝업 창 -->
+		<div id="popup03" class="notitle_popup_box" role="dialog">
+			<img class="notitle_popup_img" src="../images/img-seahtower.jpg" alt=""/>
+			<div>
+				<span class="notitle_popup_title">세아타워</span>
+				<span class="notitle_popup_info">세아타워 ( 영어: Mecenat Polis Office Tower )는 대한민국 서울특별시 마포구 서교동에 위치한 초고층 빌딩이다. 2008년에 착공하여 2012년에 완공하였다. 2012년 서교자이 웨스트밸리에서...</span>
+				<div class="notitle_popup_sub">
+					<span class="notitle_popup_time">9:50pm</span>
+					<!-- 비활성화 이미지 icon_star_wh.svg 사용 -->
+					<img class="notitle_popup_favorite_btn" src="../images/icon_star_grn.svg"/>
+					<button class="notitle_popup_btn">카드보기</button>
+				</div>
+			</div>
+		</div>
+
+		<!-- Create 팝업 -->
+		<div id="popup04" class="popup_box" role="dialog">
+			<button class="btn_list icon_button" onclick="window.location.href='settings_response_types_button.html'">Button</button>
+			<button class="btn_list icon_link" onclick="window.location.href='settings_response_types_link.html'">Link</button>
+			<button class="btn_list icon_card" onclick="window.location.href='settings_response_types_card.html'">Card</button>
+			<button class="btn_list icon_table" onclick="window.location.href='settings_response_types_table.html'">Table</button>
+			<button class="btn_list icon_phone" onclick="window.location.href='settings_response_types_phone.html'">Phone</button>
+			<button class="btn_list icon_image" onclick="window.location.href='settings_response_types_image.html'">Image</button>
+			<button class="btn_list icon_video" onclick="window.location.href='settings_response_types_video.html'">Video</button>
+			<button class="btn_list icon_download"  onclick="window.location.href='settings_response_types_download.html'">Download</button>
+			<button class="btn_list icon_select_box" onclick="window.location.href='settings_response_types_select_box.html'">Select Box</button>
+		</div>
+
+	</body>
+</html>

@@ -1,0 +1,230 @@
+header {
+  position: relative;
+  z-index: 100;
+}
+
+.body_box .menu_box {
+  z-index: 99;
+}
+
+.body_box .contents_box .contents {
+    margin-top: 40px;
+}
+
+.select_box span {
+  font-size: 14px;
+  font-family: 'Noto Sans';
+  color: #acacac;
+  margin-left: 20px;
+}
+
+.contents .graph_main {
+  width: 100%;
+  height: 320px;
+  background: #EDF0F5 0% 0% no-repeat padding-box;
+  border-radius: 8px;
+  display: table;
+}
+
+.contents .graph_main .text_class {
+  display: table-cell;
+  vertical-align: middle;
+  height: auto;
+  width: auto;
+}
+
+.contents .graph_main .graph_text {
+  width: 600px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #272D48;
+  margin: 0 auto;
+  padding-bottom: 15px;
+  height: auto;
+  vertical-align: middle;
+}
+
+.contents .graph_main .graph_text_sub {
+  width: 600px;
+  text-align: center;
+  font-size: 14px;
+  color: #5F6374;
+  margin: 30px auto;
+  height: auto;
+}
+
+.export_btn {
+  float: right;
+  margin-right: 13px;
+  border: 1px solid #2644C5;
+  display: inline-block;
+}
+
+.export_btn:hover {
+  background: #193095 0% 0% no-repeat padding-box;
+  border: 1px solid #193095;
+}
+.export_btn:disabled {
+  float: right;
+  margin-right: 13px;
+  border: 1px solid #2644C5;
+  opacity: 0.5;
+}
+.import_btn {
+  display: flex;
+  margin-right: 15px;
+  float: right;
+  background-color: #ffffff;
+  color: #2644C5;
+  border: 1px solid #2644C5;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  background-repeat: no-repeat;
+}
+
+.import_btn:hover {
+  margin-right: 15px;
+  float: right;
+  background: #EDF0FF 0% 0% no-repeat padding-box;
+  color: #2644C5;
+  border: 1px solid #2644C5;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  background-repeat: no-repeat;
+}
+.import_btn:disabled {
+  display: flex;
+  margin-right: 15px;
+  float: right;
+  background-color: #ffffff;
+  color: #2644C5;
+  border: 1px solid #2644C5;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  background-repeat: no-repeat;
+opacity: 0.5;
+}
+
+.contents.top h2 {
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'Noto Sans';
+  display: inline-block;
+}
+
+.contents.top {
+  border-bottom: 1px solid #DFE1EA;
+}
+
+
+.contents .content_sub_title {
+  display: inline-block;
+}
+
+.contents  h2 {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'Noto Sans';
+  margin-right: 15px;
+}
+
+.contents  span {
+  font-size: 13px;
+  font-family: 'Noto Sans';
+  display: inline-block;
+}
+
+.dataTables_wrapper {
+  padding-top: 0;
+  padding-bottom: 55px;
+}
+
+/* loding page */
+.all {
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  min-width: 1290px;
+  height: 100%;
+  z-index: 98;
+  background: #000000B3 0% 0% no-repeat padding-box;
+  position: absolute;
+  padding: 0;
+  margin: 0;
+}
+
+.all .loding_div {
+  vertical-align: middle;
+  width: 130px;
+  text-align: center;
+  height: auto;
+  z-index: 101;
+  position: absolute;
+  top: 30%;
+  left: 53%;
+  margin: 0px auto;
+  margin-top: 0px;
+}
+
+.all .loding_div img {
+  width: 124px;
+  height: 124px;
+}
+
+.all .loding_div p {
+  color: #fff;
+  margin-top: 15px;
+  font-size: 17px;
+  letter-spacing: 1.6px;
+}
+
+/*card input file images url css*/
+.filebox {
+  display: inline-block;
+  float: right;
+}
+
+.filebox input[type="file"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.body_box .contents_box .select_box label {
+  font: bold 14px/19px 'Noto Sans';
+  color: #2644C5;
+}
+
+.filebox label {
+  display: inline-block;
+  padding: 8px 24px;
+  line-height: normal;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid #2644C5;
+  background: #fff 0% 0% no-repeat padding-box;
+  border-radius: 4px;
+}
+
+.filebox label:hover {
+  display: inline-block;
+  padding: 8px 24px;
+  font: normal 14px/19px 'Noto Sans';
+  color: #2644C5;
+  line-height: normal;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid #2644C5;
+  background: #EDF0FF 0% 0% no-repeat padding-box;
+  border-radius: 4px;
+}

@@ -1,0 +1,128 @@
+.logo{
+	margin-left: 30px;
+	margin-right: 44px;
+	color:#ffffff;
+	padding-left:60px;
+	padding-top:12px;
+	font-size: 28px;
+	font-weight:bold;
+	background-image:url("../images/Icon awesome-robot.svg");
+	background-repeat:no-repeat;
+	background-position:left center;
+}
+
+.body_box{margin:auto; padding-top:30px}
+.body_box .contents_box{
+	padding-left:0px;
+	padding-right:0px;
+	padding-top:130px;
+	display:none
+}
+.body_box .contents_box.on.ma{
+	padding-left:0px;
+	padding-right:0px;
+	padding-top:80px;
+	display:none
+}
+.body_box .contents_box.on.ma{
+	display:block;
+}
+.body_box .contents_box.on{
+	padding-left:0px;
+	padding-right:0px;
+	padding-top:130px;
+	display:none
+}
+.body_box .contents_box.on{
+	display:block;
+}
+.body_box .contents_box .title{
+	left:0px;
+	top:50px;
+}
+.body_box .contents_box .top_btn_box{
+	position:absolute;
+	top:44px;
+	width:100%;
+	text-align:right;
+	z-index: 98;
+}
+.body_box .contents_box .top_btn_box .delete_btn{
+	margin-left:10px;
+}
+.body_box .contents_box .skill_list{
+	width:280px;
+	display:inline-block;
+	margin-right:23px;
+	position: relative;
+	margin-bottom: 25px;
+}
+.body_box .contents_box .skill_list.no_magin_r{
+	margin-right:0px;
+	margin-bottom: 25px;
+}
+.body_box .contents_box .skill_list .icon_btn{
+	width:280px;
+	height:200px;
+	border: 1px solid gray;
+	box-shadow: 3px 3px 6px #cccccc;
+	border-radius: 8px;
+	position:relative;
+	cursor:pointer;
+}
+.body_box .contents_box .skill_list .icon_btn:hover{
+	background:#edf0ff;
+	border:1px solid #6474b7;
+}
+.body_box .contents_box .skill_list.off .icon_btn{
+	border: 1px dotted #B2B8C9;
+	background:#F7F7F7
+}
+.body_box .contents_box .skill_list.off .icon_btn:hover{
+	background:#ebebeb
+}
+.body_box .contents_box .skill_list .icon_btn .icon{
+	border-radius: 50%;
+	background:#000000;
+	padding:13px 12px;
+	display:block; width:45px; height:40px;
+	position: absolute;
+	top:40px; left:50%;
+	margin-left:-35px;
+}
+.body_box .contents_box .skill_list .icon_btn img{
+	position: absolute;
+	    left: 26%;
+	    top: 10%;
+}
+.body_box .contents_box .skill_list .icon_btn span{
+	position: absolute;
+	font-size:24px;
+	bottom:40px;
+	width:100%;
+	display: block;
+	text-align:center;
+}
+
+.body_box .contents_box .skill_list .date_text{
+	font-size:12px;
+	color:#9d9ea9;
+	margin-top:21px;
+	display:inline-block;
+}
+.body_box .contents_box .skill_list button{
+	font-size:12px;
+	color:#ffffff;
+	padding:1px 9px;
+	background: #C5CCDE;
+	float: right;
+	margin-top:20px;
+	cursor:pointer;
+}
+.body_box .contents_box .skill_list button:active{
+	color:#ffffff;
+	background: #b4c0d1;
+}
+.body_box .contents_box .contents .data_list{
+	margin-top:-40px;
+}

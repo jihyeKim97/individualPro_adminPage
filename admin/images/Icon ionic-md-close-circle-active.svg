@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="58" height="58" viewBox="0 0 58 58">
+  <defs>
+    <filter id="타원_5" x="0" y="0" width="58" height="58" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="그룹_187" data-name="그룹 187" transform="translate(-1662 -489)">
+    <g transform="matrix(1, 0, 0, 1, 1662, 489)" filter="url(#타원_5)">
+      <circle id="타원_5-2" data-name="타원 5" cx="20" cy="20" r="20" transform="translate(9 6)" fill="#fff"/>
+    </g>
+    <path id="Icon_ionic-md-close-circle" data-name="Icon ionic-md-close-circle" d="M18.375,3.375a15,15,0,1,0,15,15A14.948,14.948,0,0,0,18.375,3.375Zm7.5,20.4-2.1,2.1-5.4-5.4-5.4,5.4-2.1-2.1,5.4-5.4-5.4-5.4,2.1-2.1,5.4,5.4,5.4-5.4,2.1,2.1-5.4,5.4Z" transform="translate(1672.625 496.625)" fill="#193095"/>
+  </g>
+</svg>

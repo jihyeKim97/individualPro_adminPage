@@ -1,0 +1,148 @@
+.body_box .contents_box .select_box .top_box {
+  text-align: left;
+  padding-left: 220px;
+  box-sizing: border-box;
+}
+
+.checks {
+  margin-left: 0px;
+  margin-right: 10px;
+}
+
+.checks:last-child {
+  margin-left: 0px;
+}
+
+.body_box .contents_box .select_box .row_box input {
+  margin-right: 20px;
+  box-sizing: border-box;
+}
+
+.body_box .contents_box .select_box .row_box input.last {
+  margin-right: 0px;
+}
+
+.body_box .contents_box .select_box .row_box input[type="text"] {
+  width: 215px;
+}
+
+.body_box .contents_box .select_box .row_box select {
+  margin-right: 15px;
+}
+
+.data_list thead tr th:nth-child(3) {
+  text-align: left;
+}
+
+.data_list tbody tr td:nth-child(3) {
+  text-align: left;
+}
+
+.contents {
+  position: relative;
+}
+
+.contents .download_btn {
+  position: absolute;
+  bottom: 28px;
+}
+
+.contents .download_btn:active {
+  background-color: #edf0ff;
+  color: #2644C5;
+  background-image: url(../images/icon_download.png);
+  background-position: left center;
+  background-repeat: no-repeat;
+}
+
+.c_g {
+  color: #A3A9B6
+}
+
+.ratings_box {
+  text-align: left;
+  position: relative;
+  height: 160px;
+  margin-top: 20px;
+  padding-left: 220px;
+}
+
+.user_rating {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 200px;
+  height: 160px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  background: #5F6374;
+}
+
+.user_rating .star_box {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.user_rating .star_box img {
+  width: 20px;
+  margin: 3px;
+}
+
+.user_rating .rating_count {
+  display: block;
+  font-size: 34px;
+  width: 100%;
+  text-align: center;
+  color: #ffffff
+}
+
+.user_rating .rating_text {
+  display: block;
+  font-size: 14px;
+  width: 100%;
+  text-align: center;
+  color: #ffffff
+}
+
+.sub_rating_graph {
+  background: #EDF0F5;
+  padding: 20px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  height: 160px;
+}
+
+.body_box .contents_box .select_box {
+  border: 0;
+  margin-top: 0;
+  border-radius: 0;
+  padding: 0;
+}
+
+.body_box .contents_box .select_box .row_box {
+  padding: 20px 20px;
+}
+
+.body_box .contents_box .select_box .row_box button {
+  float: right;
+}
+
+@import "lesshat";
+
+.star-ratings-sprite {
+  background: url("../images/icon_star_wh.svg") repeat-x;
+  font-size: 0;
+  height: 32px;
+  line-height: 0;
+  overflow: hidden;
+  text-indent: -999em;
+  width: 100px;
+  margin: 30px auto 0 auto;
+}
+
+.star-ratings-sprite-rating {
+  background: url("../images/icon_star_grn.svg") repeat-x;
+  float: left;
+  height: 21px;
+  display: block;
+}

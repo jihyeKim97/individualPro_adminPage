@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable = no">
+	<title>none title</title>
+	<link rel="stylesheet" type="text/css" href="../jquery-ui/common.css">
+	<link rel="stylesheet" type="text/css" href="../DataTables/datatables.min.css">
+	<link rel="stylesheet" type="text/css" href="../DataTables/buttons.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/common.css">
+	<link rel="stylesheet" type="text/css" href="../css/daterangepicker.css" />
+	<script type="text/javascript" src="../js/jquery-3.5.0.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+	<script type="text/javascript" src="../js/common.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+	<script type="text/javascript" src="../DataTables/datatables.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js"></script>
+	<script type="text/javascript" src="../jquery-ui/common.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="../css/analytics_intent.css">
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			//달력 넣기
+			initDaterangepicker('right');
+			$("#table_id").DataTable({
+				// 표시 건수기능 숨기기
+				//lengthChange: false,
+				// 정렬 기능 숨기기
+				//ordering: false,
+				// 정보 표시 숨기기
+				//info: false,
+				// 페이징 기능 숨기기
+				//aging: false,
+				// 검색 기능 숨기기
+				searching: false,
+				dom: 'l<"right" Bf>rtip',
+				buttons: [{
+					extend: 'excel',
+					text: 'Download',
+					className: 'dt_download_btn'
+				}]
+			});
+			$("#table_id2").DataTable({
+				// 표시 건수기능 숨기기
+				lengthChange: false,
+				// 정렬 기능 숨기기
+				//ordering: false,
+				// 정보 표시 숨기기
+				//info: false,
+				// 페이징 기능 숨기기
+				//aging: false,
+				// 검색 기능 숨기기
+				searching: false,
+				dom: 'l<"right" Bf>rtip',
+				buttons: [{
+					extend: 'excel',
+					text: 'Download',
+					className: 'dt_download_btn'
+				}]
+			});
+			//메뉴 높이 조절 - 자바스크립트 인하여 페이지의 높이가 달라진다면 사용
+			heightAction();
+
+		});
+
+		//팝업 생성자
+
+		//view 버튼 클릭시 동작 [ IDX 유일키 -> 파라미터 혹은 list Index ]
+		function onDetail(idx) {
+				heightAction();
+			noTitlePopupOpen("popup01", 900, "auto", "Detail View"); //열릴 팝업 아이디, 팝업 넓이, 팝업 높이, 팝업 타이틀
+		}
+		//로드가 된 후 메뉴바 높이 조절
+		window.onload = function() {
+			heightAction();
+		}
+	</script>
+
+</head>
+
+<body>
+	<!-- //-----------------------------상단 영역 -->
+	<header>
+		<div class="header_box width_box">
+			<!-- 상단 select box -->
+			<div class="top_logo_select_box selectAction">
+				<img alt="icon" class="logo_img" src="../images/chatbot_icon.svg">
+				<span class="text">HR</span>
+				<ul class="dataList">
+					<!-- type="value" 는 하단 input으로 값이 전달됨 -->
+					<li type="value" dataValue="HR"><img src="../images/chatbot_icon.svg" /><a href="#">HR</a></li>
+					<li type="value" dataValue="Finance"><img src="../images/chatbot_icon_gr.svg" /><a href="#">Finance</a></li>
+					<li type="value" dataValue="NEWS"><img src="../images/chatbot_icon_pu.svg" /><a href="#">NEWS</a></li>
+					<li type="value" dataValue="Test"><img src="../images/chatbot_icon_ye.svg" /><a href="#">Test</a></li>
+					<!-- dataUrl에 이동할 페이지 주소를 넣으면 페이지 이동 -->
+					<li type="link" dataValue="Skill List" dataUrl="/a"><img src="../images/Icon ionic-md-arrow-round-back.svg" /><a href="bot_list_skill.html">Skill List</a></li>
+				</ul>
+				<input type="hidden" value="" />
+			</div>
+			<!-- 상단 select box -->
+
+			<div class="user_btn">
+				<span>john</span>
+				<ul class="setting_box">
+					<li class="on"><a href="#">Admin</a></li>
+					<li><a href="bot_list_account_user_edit.html">setting</a></li>
+					<li><a href="#">logout</a></li>
+				</ul>
+			</div>
+		</div>
+
+	</header>
+
+
+	<!-- //-----------------------------상단 영역 -->
+	<div class="body_box width_box">
+
+		<!-- //------------------------ 메뉴 영역 -->
+		<!--
+			one_dapps 옆에 on 클래스 넣어주면 활성화
+			그룹 타입은 A 테그가 아닌 네무 테그 사용
+			ul off : 닫힘 표시
+			-->
+		<div class="menu_box">
+			<ul class="off">
+				<li><a class="one_dapps dashboard" href="dashboard.html">Dashboard</a></li>
+			</ul>
+			<ul class="off">
+				<li><a class="one_dapps statistics" href="statistics.html">Statistics</a></li>
+			</ul>
+
+			<!-- two_dapps 옆에 on 클래스 넣어주면 활성화 -->
+			<ul class="">
+				<li>
+					<span class="one_dapps analytics on" href="">
+						Analytics
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="9.148" viewBox="0 0 16 9.148">
+							<path id="Icon_ionic-ios-arrow-down" data-name="Icon ionic-ios-arrow-down" d="M14.19,17.637l6.05-6.055a1.139,1.139,0,0,1,1.615,0,1.153,1.153,0,0,1,0,1.62L15,20.062a1.141,1.141,0,0,1-1.577.033l-6.9-6.888a1.144,1.144,0,0,1,1.615-1.62Z"
+								transform="translate(-6.188 -11.246)" />
+						</svg>
+					</span>
+				</li>
+				<li><a class="two_dapps on" href="analytics_intent.html">ㆍ Intent</a></li>
+				<li><a class="two_dapps" href="analytics_entity.html">ㆍ Entity</a></li>
+				<li><a class="two_dapps" href="analytics_usage.html">ㆍ Usage</a></li>
+				<li><a class="two_dapps" href="analytics_confidence.html">ㆍ Confidence</a></li>
+				<li><a class="two_dapps" href="analytics_recognition_rate.html">ㆍ Recognition Rate</a></li>
+				<li><a class="two_dapps" href="analytics_keyword.html">ㆍ Keywords</a></li>
+				<li><a class="two_dapps" href="analytics_test_examples.html">ㆍ Test Examples</a></li>
+			</ul>
+
+			<ul class="off">
+				<li>
+					<span class="one_dapps monitoring">
+						Monitoring
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="9.148" viewBox="0 0 16 9.148">
+							<path id="Icon_ionic-ios-arrow-down" data-name="Icon ionic-ios-arrow-down" d="M14.19,17.637l6.05-6.055a1.139,1.139,0,0,1,1.615,0,1.153,1.153,0,0,1,0,1.62L15,20.062a1.141,1.141,0,0,1-1.577.033l-6.9-6.888a1.144,1.144,0,0,1,1.615-1.62Z"
+								transform="translate(-6.188 -11.246)" />
+						</svg>
+					</span>
+				</li>
+				<li><a class="two_dapps" href="monitoring_conversations.html">ㆍ Conversations</a></li>
+				<li><a class="two_dapps" href="monitoring_user_ratings.html">ㆍ User Ratings</a></li>
+			</ul>
+
+			<ul class="off">
+				<li><a class="one_dapps reporting" href="reporting.html">Reporting</a></li>
+			</ul>
+
+			<ul class="off">
+				<li>
+					<span class="one_dapps settings" href="">
+						Settings
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="9.148" viewBox="0 0 16 9.148">
+							<path id="Icon_ionic-ios-arrow-down" data-name="Icon ionic-ios-arrow-down" d="M14.19,17.637l6.05-6.055a1.139,1.139,0,0,1,1.615,0,1.153,1.153,0,0,1,0,1.62L15,20.062a1.141,1.141,0,0,1-1.577.033l-6.9-6.888a1.144,1.144,0,0,1,1.615-1.62Z"
+								transform="translate(-6.188 -11.246)" />
+						</svg>
+					</span>
+				</li>
+				<li><a class="two_dapps" href="settings_integration.html">ㆍ Integration</a></li>
+				<li><a class="two_dapps" href="settings_response_types.html">ㆍ Response Types</a></li>
+				<li><a class="two_dapps" href="settings_quick_replies.html">ㆍ Quick Replies</a></li>
+				<li><a class="two_dapps" href="settings_apis.html">ㆍ APIs</a></li>
+				<li><a class="two_dapps" href="settings_push.html">ㆍ Push</a></li>
+				<li><a class="two_dapps" href="settings_voice.html">ㆍ Voice</a></li>
+			</ul>
+		</div>
+		<!-- //------------------------ 메뉴 영역 -->
+
+		<!-- //------------------------ 컨텐츠 영역 -->
+		<div class="contents_box">
+			<h2 class="title">Intent</h2>
+
+			<!-- 상단 검색 영역 -->
+			<div class="select_box">
+				<form action="">
+					<input type="text" name="schDateRange" id="schDateRange" class="date_format" />
+					<button>Filter</button>
+				</form>
+			</div>
+			<!-- 상단 검색 영역 -->
+
+			<div class="contents">
+				<!-- 그레프 -->
+				<!-- item area는 div 안에 div 필요시 제작  -->
+				<div class="graph_main">
+					<div class="graph">
+						<div class="graph_item_box">
+
+							<div class="item_1">
+								<p>회의실 예약 (163)</p>
+								<div class="item_area_1"></div>
+							</div>
+							<div class="item_2">
+
+								<div class="item_2_1">
+									<p>경조사 문의 (163)</p>
+									<!-- <div class="item_area_2_1"></div> -->
+								</div>
+								<div class="item_2_2">
+									<p>회의실 위치 (163)</p>
+									<!-- <div class="item_area_2_2"></div> -->
+								</div>
+								<div class="item_2_3">
+									<p>휴가신청방법 (163)</p>
+									<!-- 	<div class="item_area_2_3"></div>-->
+								</div>
+								<div class="item_2_4">
+									<p>차량등록방법 (163)</p>
+									<!-- 	<div class="item_area_2_4"></div>-->
+								</div>
+							</div>
+							<div class="item_3">
+								<p>증명서 발급 (163)</p>
+								<!-- <div class="item_area_3"></div>-->
+							</div>
+							<div class="item_4">
+
+								<div class="item_4_1">
+
+									<div class="item_4_1_1">
+										<p>주차장 이용문의 (163)</p>
+										<!--  <div class="item_area_4_1_1"></div>-->
+									</div>
+									<div class="item_4_1_2">
+										<p>교욱신청방법 (163)</p>
+										<!--	  <div class="item_area_4_1_2"></div>-->
+									</div>
+									<div class="item_4_1_3">
+										<p>육아휴직문의 (163)</p>
+										<!--	  <div class="item_area_4_1_3"></div>-->
+									</div>
+
+								</div>
+								<div class="item_4_2">
+									<p>출장비정산(163)</p>
+									<!--  <div class="item_area_4_2"></div>-->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="graph_sub">
+					<div class="graph_sub_box">
+						<div class="graph_title_box">
+							<h3 class="graph_title">Daily Top 10 Intent</h3>
+						</div>
+						<div class="graph_data">
+							<!-- 그래프가 들어갈 위치 입니다 -->
+						</div>
+					</div>
+				</div>
+				<!-- 그레프 -->
+
+				<!-- 리스트 -->
+				<table class="data_list" id="table_id">
+					<colgroup>
+						<col width="20%" />
+						<col width="12%" />
+						<col width="12%" />
+						<col width="10%" />
+						<col width="10%" />
+						<col width="9%" />
+						<col width="9%" />
+					</colgroup>
+					<thead>
+						<tr>
+							<th>Intent Name</th>
+							<th>Count</th>
+							<th>Avg.confidence</th>
+							<th>Detail</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!-- roof 시작 -->
+						<tr>
+							<td>회의실 예약</td>
+							<td>726</td>
+							<td>87.23%</td>
+							<td><button onclick="onDetail(1);">Detail</button></td> <!--  -->
+						</tr>
+						<!-- roof 끝 -->
+					</tbody>
+				</table>
+				<!-- 리스트 -->
+			</div>
+		</div>
+		<footer></footer>
+	</div>
+
+	<!-- 다이얼 로그 영역 -->
+	<div id="popup01" class="popup_box detail-veiw" role="dialog">
+		<div class="detail-infos">
+			<ul>
+				<li>
+					<p class="btxt">Intent Name</p>
+					<p class="stxt">회의실 예약</p>
+				</li>
+				<li>
+					<p class="btxt">Count</p>
+					<p class="stxt">128</p>
+				</li>
+				<li>
+					<p class="btxt">Avg. Confidence</p>
+					<p class="stxt">97.23%</p>
+				</li>
+				<li>
+					<p class="btxt">Trained Examples</p>
+					<p class="stxt">2284</p>
+				</li>
+			</ul>
+		</div>
+		<div class="top_date_box">
+			<button class="date svg_left"></button>
+			<span class="span_date">2020.02.17 ~ 2020.02.23</span>
+			<button class="date svg_right"></button>
+		</div>
+		<div class="ovs">
+			<div class="tab">
+				<ul>
+					<li data-id="con1" class="on">Confidence</li>
+					<li data-id="con2">Daily Count</li>
+				</ul>
+				<div id="con1" class="conBox on">
+					<div class="comimages">
+						<!-- 그래프가 들어갈 영역입니다 -->
+					</div>
+
+				</div>
+				<div id="con2" class="conBox">
+					<div class="comimages">
+						<!-- 그래프가 들어갈 영역입니다 -->
+					</div>
+				</div>
+			</div>
+
+			<table class="list_form" id="table_id2">
+				<colgroup>
+					<col width="80px" />
+					<col width="350px" />
+					<col width="113px" />
+				</colgroup>
+				<thead>
+					<tr>
+						<th>Date</th>
+						<th>User Input Type</th>
+						<th>Confidence</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- roof 시작 -->
+					<tr>
+						<td>2020.03.05</td>
+						<td> 오늘 회의 어디서 합니까?</td>
+						<td>82.9%</td>
+					</tr>
+					<tr>
+						<td>2020.03.05</td>
+						<td> 오늘 회의 어디서 합니까?</td>
+						<td>82.9%</td>
+					</tr>
+					<tr>
+						<td>2020.03.05</td>
+						<td> 오늘 회의 어디서 합니까?</td>
+						<td>82.9%</td>
+					</tr>
+					<!-- roof 끝 -->
+				</tbody>
+			</table>
+
+		</div>
+	</div>
+</body>
+
+</html>

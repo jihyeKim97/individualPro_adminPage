@@ -1,0 +1,191 @@
+.body_box .contents_box .contents {
+  padding: 0px;
+  margin-top: 20px;
+}
+
+.body_box .contents_box {
+  padding-top: 23px;
+  padding-left: 249px;
+  padding-right: 20px;
+  z-index: 97;
+}
+
+.contents .graph_sub {
+  margin-top: 20px;
+  width: 32.1%;
+  float: left;
+}
+
+.contents .graph_sub.right {
+  float: right;
+}
+
+.contents .graph_sub.center {
+  margin-left: 2%;
+}
+
+.contents .graph_sub .graph_sub_box {
+  height: 440px;
+  background: #fff;
+  border: 1px solid #DFE1EA;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.contents .graph_sub .graph_sub_box:last {
+  margin-bottom: 0px;
+}
+
+.contents .graph_sub .graph_sub_box .graph_title {
+  font: Bold 16px 'Noto Sans';
+  letter-spacing: 0px;
+  color: #272D48;
+}
+
+.contents .graph_sub .graph_sub_box .graph_title_box {
+  margin-top: -11px;
+  margin-left: -10px;
+  margin-right: -10px;
+  height: 50px;
+  border-radius: 7px 7px 0px 0px;
+  background-color: #EDF0F5;
+}
+
+.contents .graph_sub .graph_sub_box .graph_title_box h3 {
+  padding: 13px;
+  text-align: center;
+  font: Bold 16px/22px 'Noto Sans';
+  color: #272D48;
+}
+
+.contents .graph_sub .graph_sub_box .graph_data {
+  height: 380px;
+  margin-top: 18px
+}
+
+.contents .graph_sub .graph_sub_box .graph_data .graph_data_title_box {
+  margin: 0 auto;
+  width: 45%;
+  height: 98%;
+}
+
+.contents .graph_sub .graph_sub_box .graph_data .graph_data_title_box .graph_data_title_total {
+  height: 50%;
+  display: table;
+  margin: 0 auto;
+}
+
+.contents .graph_sub .graph_sub_box .graph_data .graph_data_title_box .graph_data_title_total.ent {
+  height: 33.3%;
+}
+
+.contents .graph_sub .graph_sub_box .graph_data .graph_data_title_box .graph_data_title_total.node {
+  height: 100%;
+}
+
+.contents .graph_sub .graph_sub_box .graph_data .graph_data_title_box .graph_data_title_total.node img {
+  display: block;
+  width: 56px;
+  height: 63px;
+  margin: 0 auto;
+  margin-bottom: 15px;
+}
+
+.contents .graph_sub .graph_sub_box .graph_data .graph_data_title_box .graph_data_title_total .graph_data_title_total_box {
+  display: table-cell;
+  vertical-align: middle;
+  width: fit-content;
+}
+
+.contents .graph_sub .graph_sub_box .graph_data .graph_data_title_box .graph_data_title_total p, span {
+  color: #272D48;
+  text-align: center;
+}
+
+.contents .graph_sub .graph_sub_box .graph_data .graph_data_title_box .graph_data_title_total p {
+  font-size: 40px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.contents .graph_sub .graph_sub_box .graph_data .graph_data_title_box .graph_data_title_total span {
+  font-size: 16px;
+  display: flex;
+  width: max-content;
+}
+
+.body_box .contents_box .title_sub {
+  text-align: left;
+  margin-right: 24px;
+  font: Bold 20px/27px Noto Sans;
+  letter-spacing: 0px;
+  color: #272D48;
+  display: block;
+  top: 494px;
+  left: 0;
+  margin-bottom: 20px;
+}
+
+.contents .graph_type {
+  top: 532px;
+  width: 100%;
+}
+
+.contents .graph_type .type_top_fiex {
+  width: fit-content;
+  margin-bottom: 18.6px;
+}
+
+.contents .graph_type .type_top_nuder {
+  width: fit-content;
+  margin-bottom: 18.6px;
+}
+
+.contents .graph_type .graph_type_box {
+  display: inline-block;
+  margin-right: 18.6px;
+  background: #EDF0F5 0% 0% no-repeat padding-box;
+  border-radius: 8px;
+  width: 150px;
+  height: 170px;
+  padding-bottom: 30px;
+}
+
+.contents .graph_type .graph_type_box.image {
+  margin-right: 0px;
+}
+
+.contents .graph_type .graph_type_box .type_menu {
+  margin: 0 auto;
+  width: 80%;
+  padding: 38px 0;
+}
+
+.contents .graph_type .type_image {
+  margin: 0 auto;
+}
+
+.contents .graph_type img {
+  display: block;
+  margin: 0 auto;
+  width: 30px;
+  height: 45px;
+}
+
+.contents .graph_type span {
+  margin: 0 auto;
+  text-align: center;
+  display: block;
+  font-size: 16px;
+  color: #5F6374;
+  margin-top: 10px;
+}
+
+.contents .graph_type .title_box .type_title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  color: #272D48;
+  margin-top: 10px;
+}

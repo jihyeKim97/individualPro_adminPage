@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable = no">
+	<title>none title</title>
+	<link rel="stylesheet" type="text/css" href="../jquery-ui/common.css">
+	<link rel="stylesheet" type="text/css" href="../DataTables/datatables.min.css">
+	<link rel="stylesheet" type="text/css" href="../DataTables/buttons.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/common.css">
+	<link rel="stylesheet" type="text/css" href="../css/daterangepicker.css" />
+	<script type="text/javascript" src="../js/jquery-3.5.0.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+	<script type="text/javascript" src="../js/common.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+	<script type="text/javascript" src="../DataTables/datatables.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js"></script>
+	<script type="text/javascript" src="../jquery-ui/common.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="../css/bot_list.css">
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			$("#table_id").DataTable({
+				// 표시 건수기능 숨기기
+				//lengthChange: false,
+				// 정렬 기능 숨기기
+				//ordering: false,
+				// 정보 표시 숨기기
+				//info: false,
+				// 페이징 기능 숨기기
+				//aging: false,
+				// 검색 기능 숨기기
+				searching: false,
+				dom: 'l<"right" Bf>rtip',
+				buttons: [
+					// {
+					// extend: 'excel',
+					// text: 'Download'
+					// //filename: '엑셀파일명',
+					// //title: '엑셀파일 안에 쓰일 제목'
+					// }
+				]
+			});
+
+			//메뉴 높이 조절 - 자바스크립트 인하여 페이지의 높이가 달라진다면 사용
+			heightAction();
+		});
+
+		function onCreate() {
+			//버튼 등록 팝업 열기
+			popupOpen("popup01", 600, "auto", "Create User");
+		}
+
+		function onModify() {
+			//버튼 등록 팝업 열기
+			popupOpen("popup02", 600, 515, "Skill Setting");
+		}
+
+		function onEdit() {
+			//버튼 수정 팝업 열기
+			popupOpen("popup03", 600, "auto", "Edit User");
+		}
+
+		//delete 클릭시 컴펌창 열기
+		function onDelete() {
+			//사용될 글짜
+			var btnText = ["삭제", "취소"]; //0:승인버튼에 선택할 사용할 글짜, 1:취소버튼 사용될 글짜
+			confirmOpen("popup02", "정말로 삭제하시겠습니까?", "선택하신 유저을 삭제 합니다.", btnText, confirmReturn); //
+
+		}
+
+		//리턴될 액션
+		var confirmReturn = function() {
+			alert(123);
+			$(".confirm_box").dialog("close"); //컴펌창 닫기 - 반드시 필요
+		}
+		//로드가 된 후 메뉴바 높이 조절
+		window.onload = function() {
+			heightAction();
+		}
+	</script>
+	<style media="screen">
+		.create_btn {
+			margin-top: 60px;
+		}
+	</style>
+
+</head>
+
+<body>
+	<!-- //-----------------------------상단 영역 -->
+	<header>
+		<div class="header_box width_box">
+			<h1 class="logo">ChatBot</h1>
+
+			<div class="user_btn">
+				<span>john</span>
+				<ul class="setting_box">
+					<li class="on"><a href="#">Admin</a></li>
+					<li><a href="bot_list_account_user_edit.html">setting</a></li>
+					<li><a href="#">logout</a></li>
+				</ul>
+			</div>
+		</div>
+
+	</header>
+
+	<!-- //-----------------------------상단 영역 -->
+	<div class="body_box w_1200">
+
+		<ul class="tab_box">
+			<li onclick="location.href='bot_list_skill.html'">Skill</li>
+			<li class="on" onclick="location.href='bot_list_account.html'">Account</li>
+		</ul>
+
+		<div class="contents_box on ma">
+			<h2 class="title">User List</h2>
+
+			<div class="top_btn_box">
+				<button onclick="onCreate();" class="create_btn">Create</button>
+				<button onclick="onDelete();" class="delete_btn">Delete</button>
+			</div>
+
+			<div class="contents">
+
+				<!-- 리스트 -->
+				<table class="data_list" id="table_id">
+					<colgroup>
+						<col width="10%" />
+						<col width="16%" />
+						<col width="16%" />
+						<col width="16%" />
+						<col width="16%" />
+						<col width="16%" />
+						<col width="10%" />
+					</colgroup>
+					<thead>
+						<tr>
+							<th>Select</th>
+							<th>ID</th>
+							<th>User Name</th>
+							<th>Dept.</th>
+							<th>Role</th>
+							<th>Last Modified</th>
+							<th>Edit</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!-- roof 시작 -->
+						<tr>
+							<td><input type="checkbox" /> </td>
+							<td>Input Type</td>
+							<td>User Input Text</td>
+							<td>Intent</td>
+							<td>Confidence</td>
+							<td>User</td>
+							<td><button onclick="onEdit();">Edit</button></td> <!--  -->
+						</tr>
+						<!-- roof 끝 -->
+					</tbody>
+				</table>
+				<!-- 리스트 -->
+			</div>
+		</div>
+
+		<!-- 등록 팝업창 -->
+		<div id="popup01" class="popup_box" role="dialog">
+			<span class="sub_title">User info</span>
+			<table class="insert_form">
+				<colgroup>
+					<col width="150px">
+					<col width="*">
+				</colgroup>
+				<tbody>
+					<tr>
+						<th>ID</th>
+						<td><input type="text" name="" /></td>
+					</tr>
+					<tr>
+						<th>Password</th>
+						<td><input type="password" name="" /></td>
+					</tr>
+					<tr>
+						<th>User Name</th>
+						<td><input type="text" name="" /></td>
+					</tr>
+					<tr>
+						<th>Department</th>
+						<td><input type="text" name="" /></td>
+					</tr>
+					<tr>
+						<th>Role</th>
+						<td>
+							<select>
+								<option>Normal</option>
+							</select>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<span class="sub_title">Assigned Skills</span>
+			<div class="checkbox_form">
+				<label><input type="checkbox" /> HR</label>
+				<label><input type="checkbox" /> FAQ</label>
+				<label><input type="checkbox" /> Finance</label>
+				<label><input type="checkbox" /> News</label>
+				<label><input type="checkbox" /> ShoppingMall</label>
+			</div>
+
+
+			<div class="confirm_form">
+				<button class="save_btn">Save</button>
+				<button class="cancel_btn" onclick="$('#popup01').dialog( 'close' )">Cancel</button>
+			</div>
+
+		</div>
+
+		<!-- delect 컴펌 창 -->
+		<div id="popup02" class="confirm_box" role="dialog">
+		</div>
+
+		<!-- 수정 팝업창 -->
+		<div id="popup03" class="popup_box" role="dialog">
+			<span class="sub_title">User info</span>
+			<table class="insert_form">
+				<colgroup>
+					<col width="150px">
+					<col width="*">
+				</colgroup>
+				<tbody>
+					<tr>
+						<th>ID</th>
+						<td><input type="text" placeholder="Hong" /></td>
+					</tr>
+					<tr>
+						<th>Password</th>
+						<td><input type="password" placeholder="*******" /></td>
+					</tr>
+					<tr>
+						<th>User Name</th>
+						<td><input type="text" placeholder="홍길동" /></td>
+					</tr>
+					<tr>
+						<th>Department</th>
+						<td><input type="text" placeholder="xDesigner" /></td>
+					</tr>
+					<tr>
+						<th>Role</th>
+						<td>
+							<select>
+								<option>1</option>
+								<option>2</option>
+								<option selected>Normal</option>
+							</select>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<span class="sub_title">Assigned Skills</span>
+			<div class="checkbox_form">
+				<label><input type="checkbox" /> HR</label>
+				<label><input type="checkbox" /> FAQ</label>
+				<label><input type="checkbox" /> Finance</label>
+				<label><input type="checkbox" /> News</label>
+				<label><input type="checkbox" /> ShoppingMall</label>
+			</div>
+
+
+			<div class="confirm_form">
+				<button class="save_btn">Save</button>
+				<button class="cancel_btn" onclick="$('#popup03').dialog( 'close' )">Cancel</button>
+			</div>
+
+		</div>
+
+	</div>
+
+</body>
+
+</html>
